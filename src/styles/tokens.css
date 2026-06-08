@@ -1,0 +1,86 @@
+/* =========================================================================
+   Victoria-Luz, Design tokens
+   Single source of truth, mirrored from design.md (§2 → §5).
+   Tailwind reads these via theme.extend (tailwind.config.ts).
+   Rule: no hard-coded values in components, everything routes through here.
+   ========================================================================= */
+
+:root {
+  /* ---- 2. Palette (charte) -------------------------------------------- */
+  --creme: #fff2ed; /* Fond principal */
+  --nude: #f7d6c9; /* Fond secondaire / sections alternées */
+  --rose: #e39982; /* Accent chaud, manuscrit, surlignage (gros formats) */
+  --marron: #733b2b; /* Fond foncé chaleureux, blocs immersifs */
+  --chocolat: #3b1712; /* Texte courant, fond très foncé, contraste */
+  --bleuet: #829cd1; /* Accent doux, détails, bien-être */
+  --bleu-klein: #243385; /* Accent fort / CTA / liens / boutons */
+
+  /* ---- Rôles sémantiques (design.md §2) ------------------------------- */
+  --bg: var(--creme);
+  --bg-alt: var(--nude);
+  --bg-dark: var(--marron);
+  --bg-darker: var(--chocolat);
+  --text: var(--chocolat); /* texte sur fond clair */
+  --text-invert: var(--creme); /* texte sur fond foncé */
+  --text-muted: color-mix(in srgb, var(--chocolat) 64%, transparent);
+  --text-invert-muted: color-mix(in srgb, var(--creme) 70%, transparent);
+  --accent: var(--bleu-klein); /* CTA, liens, focus */
+  --accent-warm: var(--rose); /* manuscrit, highlights display */
+  --accent-soft: var(--bleuet); /* détails secondaires */
+  --line: color-mix(in srgb, var(--chocolat) 18%, transparent);
+  --line-invert: color-mix(in srgb, var(--creme) 22%, transparent);
+
+  /* ---- 3. Typographie ------------------------------------------------- */
+  /* Solea est fournie en local (assets/typo/Solea-Regular.otf) et chargée
+     via next/font/local. Le bascule reste sur une SEULE variable :
+     remplacer la pile ici suffit si la licence/police évolue.
+     Fraunces / Cormorant restent en fallback visuel proche. */
+  --font-display: var(--font-solea), 'Fraunces', 'Cormorant Garamond', serif;
+  --font-sans: var(--font-worksans), system-ui, sans-serif;
+  --font-hand: var(--font-quentin), 'Caveat', cursive;
+
+  /* Échelle fluide (design.md §3.3) */
+  --fs-display: clamp(3rem, 8vw, 8rem); /* floor abaissé (3.5→3rem) pour la lisibilité mobile, cf. design.md §3.3 */
+  --fs-h1: clamp(2.5rem, 5vw, 4.5rem);
+  --fs-h2: clamp(2rem, 3.5vw, 3rem);
+  --fs-h3: clamp(1.5rem, 2.2vw, 2rem);
+  --fs-hand: clamp(2.5rem, 6vw, 6rem);
+  --fs-surtitre: clamp(0.75rem, 0.9vw, 0.875rem);
+  --fs-body: clamp(1rem, 1.1vw, 1.125rem);
+  --fs-small: 0.875rem;
+  --fs-caption: 0.75rem;
+
+  /* Interlettrages de référence (§3.2) */
+  --ls-display: 0; /* titres Solea : interlettrage 0 */
+  --ls-surtitre: 0.26em; /* surtitre Work Sans : large */
+
+  /* ---- 4. Grille ------------------------------------------------------ */
+  --grid-cols: 12;
+  --grid-gutter: clamp(1rem, 2vw, 1.5rem);
+  --page-margin: clamp(1.25rem, 5vw, 5rem);
+  --content-max: 1440px;
+  --baseline: 8px;
+
+  /* ---- 5. Espacement & rythme (échelle 4px) --------------------------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+  --space-40: 10rem;
+  --space-48: 12rem;
+
+  /* Rayons : interfaces quasi droites ; le cercle est réservé aux tampons. */
+  --radius: 2px;
+
+  /* Durées de motion (sobre) */
+  --ease-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur-1: 0.4s;
+  --dur-2: 0.7s;
+  --dur-3: 1.1s;
+}
