@@ -31,7 +31,7 @@ export default function Hero() {
             className="reveal-load t-surtitre"
             style={{ ['--delay' as string]: '0.05s' }}
           >
-            Victoria-Luz · Tatoueuse · {`Nantes`}
+            Victoria-Luz · Tatoueuse · {`Angers`}
           </p>
 
           <h1

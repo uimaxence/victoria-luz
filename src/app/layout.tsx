@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import { Analytics } from '@vercel/analytics/next';
 import '@/styles/globals.css';
 import { solea, workSans, quentin } from './fonts';
 import Nav from '@/components/Nav';
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
     template: `%s, ${SITE.name}`,
   },
   description:
-    "Victoria-Luz, tatoueuse professionnelle à Nantes. Tatouage artistique sur-mesure et reconstruction corporelle : aréole mammaire 3D, camouflage de cicatrices, sourcils & lèvres. Une approche douce, raffinée et valorisante.",
+    "Victoria-Luz, tatoueuse professionnelle à Angers. Tatouage artistique sur-mesure et reconstruction corporelle : aréole mammaire 3D, camouflage de cicatrices, sourcils & lèvres. Une approche douce, raffinée et valorisante.",
   openGraph: {
     title: `${SITE.name}, Tatouage artistique & reconstruction corporelle`,
     description:
@@ -44,6 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="contenu">{children}</main>
         <Footer />
         <GridOverlay />
+        <Analytics />
       </body>
     </html>
   );

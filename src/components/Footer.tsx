@@ -74,18 +74,33 @@ export default function Footer() {
             <p className="t-surtitre text-text-invert-muted">Contact</p>
             <ul className="mt-4 space-y-2 text-small">
               <li>
+                <a href={`tel:${SITE.phoneHref}`} className="hover:text-rose">
+                  {SITE.phone}
+                </a>
+              </li>
+              <li>
                 <a href={`mailto:${SITE.email}`} className="hover:text-rose">
                   {SITE.email}
                 </a>
               </li>
               <li>
                 <a
-                  href="https://instagram.com"
+                  href={SITE.instagramUrl}
                   className="hover:text-rose"
                   rel="noreferrer noopener"
                   target="_blank"
                 >
                   Instagram {SITE.instagram}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={SITE.instagramReconstructionUrl}
+                  className="hover:text-rose"
+                  rel="noreferrer noopener"
+                  target="_blank"
+                >
+                  Instagram {SITE.instagramReconstruction}
                 </a>
               </li>
             </ul>

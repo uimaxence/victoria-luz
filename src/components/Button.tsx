@@ -16,6 +16,8 @@ type ButtonProps = {
   children: ReactNode;
   variant?: Variant;
   invert?: boolean; // sur fond foncé
+  /** lien externe : rendu en <a target="_blank"> plutôt qu'en <Link> Next */
+  external?: boolean;
   className?: string;
 };
 
@@ -27,17 +29,29 @@ export default function Button({
   children,
   variant = 'primary',
   invert = false,
+  external = false,
   className = '',
 }: ButtonProps) {
+  // Un seul point de bascule Link interne ↔ ancre externe (target/rel).
+  const Anchor = ({ children: c, ...rest }: { children: ReactNode; className?: string; 'aria-label'?: string }) =>
+    external ? (
+      <a href={href} target="_blank" rel="noreferrer noopener" {...rest}>
+        {c}
+      </a>
+    ) : (
+      <Link href={href} {...rest}>
+        {c}
+      </Link>
+    );
+
   if (variant === 'primary') {
     return (
-      <Link
-        href={href}
+      <Anchor
         className={`${base} rounded-token bg-bleu-klein px-5 py-3 text-small uppercase tracking-[0.12em] text-creme hover:bg-chocolat sm:px-6 sm:tracking-[0.16em] ${className}`}
       >
         <span>{children}</span>
         <Arrow />
-      </Link>
+      </Anchor>
     );
   }
 
@@ -46,21 +60,19 @@ export default function Button({
       ? 'border-creme text-creme hover:bg-creme hover:text-chocolat'
       : 'border-chocolat text-chocolat hover:bg-chocolat hover:text-creme';
     return (
-      <Link
-        href={href}
+      <Anchor
         className={`${base} rounded-token border px-5 py-3 text-small uppercase tracking-[0.12em] sm:px-6 sm:tracking-[0.16em] ${tone} ${className}`}
       >
         <span>{children}</span>
         <Arrow />
-      </Link>
+      </Anchor>
     );
   }
 
   if (variant === 'explore') {
     const tone = invert ? 'border-creme text-creme' : 'border-chocolat text-chocolat';
     return (
-      <Link
-        href={href}
+      <Anchor
         aria-label={typeof children === 'string' ? children : 'Explorer'}
         className={`${base} aspect-square h-28 w-28 flex-col justify-center rounded-full border text-center text-caption uppercase tracking-[0.2em] hover:bg-bleu-klein hover:text-creme hover:border-bleu-klein ${tone} ${className}`}
       >
@@ -68,15 +80,14 @@ export default function Button({
         <span className="mt-1 inline-block transition-transform duration-[var(--dur-2)] ease-soft group-hover:rotate-90">
           ↓
         </span>
-      </Link>
+      </Anchor>
     );
   }
 
   // link
   const tone = invert ? 'text-creme' : 'text-bleu-klein';
   return (
-    <Link
-      href={href}
+    <Anchor
       className={`${base} relative w-fit text-small uppercase tracking-[0.16em] ${tone} ${className}`}
     >
       <span className="relative">
@@ -89,7 +100,7 @@ export default function Button({
         />
       </span>
       <Arrow />
-    </Link>
+    </Anchor>
   );
 }
 
