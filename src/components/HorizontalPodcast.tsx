@@ -119,7 +119,10 @@ export default function HorizontalPodcast({
       <div
         className={
           hijack
-            ? 'sticky top-0 flex h-screen flex-col overflow-hidden'
+            ? // !sticky : la règle globale `.has-grain > * { position: relative }`
+              // (globals.css) écraserait sinon le position:sticky du conteneur collé,
+              // ce qui laissait la section défiler verticalement EN PLUS de l'horizontal.
+              '!sticky top-0 flex h-screen flex-col overflow-hidden'
             : 'flex flex-col py-24 md:py-32'
         }
       >
