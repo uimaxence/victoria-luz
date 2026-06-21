@@ -7,14 +7,18 @@ import { useEffect, useRef, useState } from 'react';
  * Défilement horizontal piloté par le scroll vertical (design.md §4.2 gallery-scroll).
  *
  * Quand la section entre dans le viewport, elle se « colle » (sticky) et le scroll
- * vertical fait défiler la rangée d'extraits de podcast un par un, horizontalement.
- * Une fois la rangée parcourue, le scroll vertical classique reprend naturellement.
+ * vertical fait défiler la rangée d'extraits de podcast horizontalement. Une fois
+ * la rangée parcourue, le scroll vertical classique reprend.
+ *
+ * Important : en mode hijack, le contenu collé tient INTÉGRALEMENT dans le viewport
+ * (header + rangée centrée, sans débordement vertical). Ainsi l'utilisateur ne
+ * perçoit que le mouvement horizontal — pas de double défilement.
  *
  * Robustesse :
  * - Hijack réservé aux grands écrans à pointeur fin, hors prefers-reduced-motion.
  * - Sinon (mobile, tactile, motion réduit), repli sur un carrousel natif
- *   (overflow-x + scroll-snap), sans détournement du scroll. Le rendu SSR part
- *   du mode natif → pas de saut d'hydratation.
+ *   (overflow-x + scroll-snap). Le rendu SSR part du mode natif → pas de saut
+ *   d'hydratation.
  */
 
 type Episode = {
@@ -66,7 +70,6 @@ export default function HorizontalPodcast({
     }
 
     let raf = 0;
-
     const distance = () => Math.max(0, track.scrollWidth - window.innerWidth);
 
     const update = () => {
@@ -98,6 +101,12 @@ export default function HorizontalPodcast({
     };
   }, [hijack]);
 
+  // Tailles des cartes : en hijack, hauteur fixée pour tenir dans le viewport
+  // (la largeur découle du ratio) ; en natif, largeur fluide + hauteur auto.
+  const cardSize = hijack
+    ? 'h-full aspect-[4/5]'
+    : 'w-[78vw] aspect-[4/5] sm:w-[58vw] md:w-[44vw] lg:w-[30rem]';
+
   return (
     <section
       ref={outerRef}
@@ -110,44 +119,43 @@ export default function HorizontalPodcast({
       <div
         className={
           hijack
-            ? 'sticky top-0 flex h-screen flex-col justify-center overflow-hidden'
-            : 'flex flex-col gap-8 py-20 md:py-28'
+            ? 'sticky top-0 flex h-screen flex-col overflow-hidden'
+            : 'flex flex-col py-24 md:py-32'
         }
       >
         {/* En-tête de la rangée */}
-        <div className="container-page">
+        <div className={`container-page shrink-0 ${hijack ? 'pt-28 md:pt-32' : ''}`}>
           <p className="t-surtitre text-text-invert-muted">Sous nos cicatrices · épisodes</p>
           <h2 className="mt-4 max-w-[18ch] t-h2 text-creme">Des voix, un extrait à la fois</h2>
-          <p className="mt-3 text-small text-text-invert-muted">
-            {hijack ? 'Faites défiler ↓ pour parcourir les extraits' : 'Glissez pour parcourir les extraits →'}
+          <p className="mt-4 text-small text-text-invert-muted">
+            {hijack
+              ? 'Faites défiler ↓ — la rangée avance horizontalement'
+              : 'Glissez pour parcourir les extraits →'}
           </p>
         </div>
 
-        {/* Rangée d'extraits */}
+        {/* Rangée d'extraits, centrée verticalement dans l'espace restant */}
         <div
           className={
             hijack
-              ? 'mt-10 overflow-hidden'
-              : 'mt-2 overflow-x-auto snap-x snap-mandatory [scrollbar-width:none] [-webkit-overflow-scrolling:touch]'
+              ? 'flex min-h-0 flex-1 items-center overflow-hidden py-12 md:py-16'
+              : 'mt-10 overflow-x-auto pb-2 snap-x snap-mandatory [scrollbar-width:none] [-webkit-overflow-scrolling:touch]'
           }
         >
           <div
             ref={trackRef}
-            className={`flex items-stretch gap-6 px-page-margin md:gap-8 ${
-              hijack ? 'w-max will-change-transform' : 'w-max'
+            className={`flex w-max items-stretch gap-6 px-page-margin md:gap-8 ${
+              hijack ? 'h-[clamp(20rem,56vh,40rem)] will-change-transform' : ''
             }`}
           >
             {episodes.map((ep) => (
-              <article
-                key={ep.num}
-                className="group relative w-[78vw] shrink-0 snap-start sm:w-[58vw] md:w-[42vw] lg:w-[30rem]"
-              >
-                <div className="relative aspect-[4/5] overflow-hidden rounded-token bg-marron">
+              <article key={ep.num} className={`group relative shrink-0 snap-start ${cardSize}`}>
+                <div className="relative h-full w-full overflow-hidden rounded-token bg-marron">
                   <Image
                     src={ep.image}
                     alt=""
                     fill
-                    sizes="(max-width: 768px) 78vw, 30rem"
+                    sizes="(max-width: 1024px) 78vw, 24rem"
                     className="object-cover opacity-90 transition-transform duration-[var(--dur-3)] ease-soft group-hover:scale-105"
                   />
                   <div
@@ -167,14 +175,18 @@ export default function HorizontalPodcast({
             ))}
 
             {/* Panneau final : accès au podcast complet */}
-            <article className="flex w-[78vw] shrink-0 snap-start flex-col justify-center sm:w-[58vw] md:w-[42vw] lg:w-[26rem]">
+            <article
+              className={`flex shrink-0 snap-start flex-col justify-center ${
+                hijack ? 'h-full w-[24rem]' : 'w-[78vw] sm:w-[58vw] md:w-[26rem]'
+              }`}
+            >
               <p className="t-hand -rotate-3 text-rose">à écouter</p>
               <h3 className="mt-4 max-w-[16ch] t-h2 text-creme">
                 Tous les premiers mercredis du mois
               </h3>
               <p className="mt-5 max-w-[40ch] text-small text-text-invert-muted">
-                Un nouvel épisode, une nouvelle histoire. Retrouvez l’intégralité des
-                témoignages sur la chaîne du podcast.
+                Un nouvel épisode, une nouvelle histoire. Retrouvez l’intégralité des témoignages
+                sur la chaîne du podcast.
               </p>
               <a
                 href={youtube}

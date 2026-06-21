@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import PageHeader from '@/components/sections/PageHeader';
-import ImageFrame from '@/components/ImageFrame';
 import Reveal from '@/components/Reveal';
 import Floral from '@/components/Floral';
 import Stamp from '@/components/Stamp';
@@ -66,62 +65,40 @@ export default function ReconstructionPage() {
         </div>
       </section>
 
-      {/* ---- Prestations réparatrices, bloc immersif ---- */}
-      <section className="relative isolate overflow-hidden bg-marron text-creme has-grain is-dark">
+      {/* ---- Prestations réparatrices, grille de cartes (layout distinct) ---- */}
+      <section className="relative isolate overflow-hidden bg-chocolat text-creme has-grain is-dark">
         <span className="grain-layer" aria-hidden />
+        <span className="pointer-events-none absolute right-6 top-10 hidden text-creme/70 md:block">
+          <Stamp variant="reconstruction" size={132} spin />
+        </span>
+        <Floral
+          name="Pivoine_3_creme"
+          className="pointer-events-none absolute -left-12 bottom-0 hidden lg:block"
+          opacity={0.12}
+          width={260}
+        />
         <div className="container-page py-20 md:py-32">
-          <div className="grid-12 items-start gap-y-16">
-            {/* Visuel chevauchant */}
-            <Reveal className="relative col-span-12 md:col-span-5">
-              <div
-                aria-hidden
-                className="absolute -left-4 -top-6 h-full w-full rounded-token bg-chocolat md:-left-8 md:-top-8"
-              />
-              <ImageFrame
-                src="/img/body-texture.jpg"
-                alt="Détail de peau en pleine lumière, la matière du corps respectée"
-                ratio="portrait"
-                sizes="(max-width: 768px) 100vw, 40vw"
-                className="relative"
-              />
-              <span className="absolute -right-4 -top-8 text-creme md:-top-12">
-                <Stamp variant="reconstruction" size={120} spin />
-              </span>
-              <Floral
-                name="Pivoine_3_creme"
-                className="pointer-events-none absolute -left-12 bottom-8 hidden lg:block"
-                opacity={0.14}
-                width={170}
-              />
+          <div className="max-w-[34ch]">
+            <Reveal as="p" className="t-surtitre text-text-invert-muted">
+              Les prestations
             </Reveal>
+            <Reveal as="h2" className="mt-5 t-h1 text-creme" delay={0.1}>
+              Réparer, atténuer, harmoniser
+            </Reveal>
+          </div>
 
-            {/* Liste prestations */}
-            <div className="col-span-12 md:col-span-6 md:col-start-7 md:pl-gutter lg:pl-12">
-              <Reveal as="p" className="t-surtitre text-text-invert-muted">
-                Les prestations
+          <div className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-token border border-line-invert bg-line-invert sm:grid-cols-2">
+            {RECONSTRUCTION_SERVICES.map((s, i) => (
+              <Reveal
+                key={s.title}
+                className="group flex flex-col bg-chocolat p-8 transition-colors duration-[var(--dur-1)] ease-soft hover:bg-marron md:p-10"
+                delay={0.12 + i * 0.06}
+              >
+                <span className="t-surtitre text-rose">0{i + 1}</span>
+                <h3 className="mt-4 t-h3 font-display text-creme">{s.title}</h3>
+                <p className="mt-4 max-w-[44ch] text-small text-text-invert-muted">{s.desc}</p>
               </Reveal>
-              <Reveal as="h2" className="mt-5 max-w-[16ch] t-h2 text-creme" delay={0.1}>
-                Réparer, atténuer, harmoniser
-              </Reveal>
-
-              <ul className="mt-10 border-t border-line-invert">
-                {RECONSTRUCTION_SERVICES.map((s, i) => (
-                  <Reveal
-                    as="li"
-                    key={s.title}
-                    className="grid grid-cols-12 items-baseline gap-3 border-b border-line-invert py-6"
-                    delay={0.16 + i * 0.06}
-                  >
-                    <span className="col-span-12 t-soustitre text-creme sm:col-span-4">
-                      {s.title}
-                    </span>
-                    <span className="col-span-12 text-small text-text-invert-muted sm:col-span-8">
-                      {s.desc}
-                    </span>
-                  </Reveal>
-                ))}
-              </ul>
-            </div>
+            ))}
           </div>
         </div>
       </section>

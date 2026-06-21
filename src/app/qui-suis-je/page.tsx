@@ -37,67 +37,62 @@ export default function QuiSuisJePage() {
         floral={{ name: 'Pivoine_4_marron', width: 150 }}
       />
 
-      {/* ---- Récit, split-5-7 ---- */}
+      {/* ---- Récit, timeline (layout distinct : repères d'années) ---- */}
       <section className="relative isolate overflow-hidden bg-nude has-grain">
         <span className="grain-layer" aria-hidden />
+        <Floral
+          name="Pivoine_2_rose"
+          className="pointer-events-none absolute -left-10 top-24 hidden lg:block"
+          opacity={0.25}
+          width={150}
+        />
         <div className="container-page py-20 md:py-32">
-          <div className="grid-12 items-start gap-y-12">
-            <Reveal className="relative col-span-12 md:col-span-5">
-              <span
-                className="absolute -left-3 top-0 hidden t-surtitre lg:block"
-                style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
-              >
-                Mon parcours · depuis 2021
-              </span>
-              <ImageFrame
-                src="/img/approach-skin.jpg"
-                alt="Geste précis et attentif, l’attention portée à la peau et à la matière"
-                ratio="tall"
-                framed
-                sizes="(max-width: 768px) 100vw, 40vw"
-                objectPosition="center 40%"
-                wrapperClassName="lg:pl-8"
-              />
-              <Floral
-                name="Pivoine_2_rose"
-                className="pointer-events-none absolute -bottom-8 left-2 hidden md:block"
-                opacity={0.35}
-                width={120}
-              />
-            </Reveal>
-
-            <div className="col-span-12 md:col-span-7 md:pl-gutter lg:pl-16">
-              <Reveal as="p" className="t-surtitre" delay={0.05}>
+          <div className="grid-12 gap-y-12">
+            {/* Titre, en marge */}
+            <div className="col-span-12 lg:col-span-3">
+              <Reveal as="p" className="t-hand -rotate-3 text-rose">
+                mon parcours
+              </Reveal>
+              <Reveal as="h2" className="mt-4 max-w-[12ch] t-h2 text-chocolat" delay={0.08}>
                 Le lien humain avant tout
               </Reveal>
-              <Reveal as="h2" className="mt-5 max-w-[20ch] t-h2 text-chocolat" delay={0.1}>
-                Construire un métier qui me ressemble
-              </Reveal>
-
-              <div className="mt-8 max-w-[60ch] space-y-5 text-body text-text md:t-body-justify">
-                <Reveal as="p" delay={0.16}>
-                  Mon parcours a commencé en <strong>2021</strong>, alors que j’étais encore
-                  étudiante en architecture d’intérieur et design d’objet. Très vite, j’ai
-                  compris que, malgré mon amour pour la création, ce qui me faisait vibrer était
-                  avant tout le lien humain. La rencontre, l’écoute, le rapport au corps et la
-                  possibilité d’accompagner une personne dans son histoire ont pris une place
-                  essentielle dans ma vie.
-                </Reveal>
-                <Reveal as="p" delay={0.2}>
-                  En <strong>2024</strong>, j’ai fait le choix de quitter mes études pour me
-                  consacrer pleinement au tatouage. Depuis, je mets tout mon cœur dans chacun de
-                  mes projets. J’aime créer des tatouages ornementaux pensés comme de véritables
-                  bijoux, qui subliment le corps et révèlent la personnalité de celles qui les
-                  portent.
-                </Reveal>
-                <Reveal as="p" delay={0.24}>
-                  Qu’il s’agisse de reconstruction après un cancer, de camouflage de cicatrices
-                  ou simplement d’un tatouage permettant de retrouver confiance en son corps et
-                  en sa féminité, mon objectif reste le même : offrir un espace où chacune se
-                  sent écoutée, respectée et libre d’être elle-même.
-                </Reveal>
-              </div>
             </div>
+
+            {/* Timeline */}
+            <ol className="col-span-12 lg:col-span-8 lg:col-start-5">
+              {[
+                {
+                  year: '2021',
+                  title: 'Les débuts',
+                  body: "Encore étudiante en architecture d’intérieur et design d’objet, je comprends vite que, malgré mon amour pour la création, ce qui me fait vibrer est avant tout le lien humain : la rencontre, l’écoute, le rapport au corps.",
+                },
+                {
+                  year: '2024',
+                  title: 'Le grand choix',
+                  body: "Je quitte mes études pour me consacrer pleinement au tatouage et construire un métier qui me ressemble. Je crée des pièces ornementales pensées comme de véritables bijoux, qui révèlent la personnalité de celles qui les portent.",
+                },
+                {
+                  year: 'Aujourd’hui',
+                  title: 'Une mission qui dépasse le tatouage',
+                  body: "Reconstruction après un cancer, camouflage de cicatrices, ou simplement retrouver confiance en son corps : mon objectif reste le même — offrir un espace où chacune se sent écoutée, respectée et libre d’être elle-même.",
+                },
+              ].map((item, i) => (
+                <Reveal
+                  as="li"
+                  key={item.year}
+                  className="grid grid-cols-12 gap-x-6 gap-y-2 border-t border-line py-8 first:border-t-0 md:py-10"
+                  delay={0.1 + i * 0.08}
+                >
+                  <span className="col-span-12 font-display text-h2 leading-none text-bleu-klein md:col-span-3">
+                    {item.year}
+                  </span>
+                  <div className="col-span-12 md:col-span-9">
+                    <h3 className="t-h3 font-display text-chocolat">{item.title}</h3>
+                    <p className="mt-3 max-w-[58ch] text-body text-text-muted">{item.body}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </ol>
           </div>
         </div>
       </section>
