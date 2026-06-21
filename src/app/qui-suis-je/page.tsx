@@ -80,13 +80,13 @@ export default function QuiSuisJePage() {
                 <Reveal
                   as="li"
                   key={item.year}
-                  className="grid grid-cols-12 gap-x-6 gap-y-2 border-t border-line py-8 first:border-t-0 md:py-10"
+                  className="grid grid-cols-12 gap-x-8 gap-y-3 border-t border-line py-8 first:border-t-0 md:py-10"
                   delay={0.1 + i * 0.08}
                 >
-                  <span className="col-span-12 font-display text-h2 leading-none text-bleu-klein md:col-span-3">
+                  <span className="col-span-12 break-words font-display text-h3 leading-[1.02] text-bleu-klein md:col-span-4 md:pr-6 lg:text-h2">
                     {item.year}
                   </span>
-                  <div className="col-span-12 md:col-span-9">
+                  <div className="col-span-12 md:col-span-8">
                     <h3 className="t-h3 font-display text-chocolat">{item.title}</h3>
                     <p className="mt-3 max-w-[58ch] text-body text-text-muted">{item.body}</p>
                   </div>
