@@ -9,16 +9,16 @@ export const SITE = {
   name: 'Victoria-Luz',
   logo: 'VICTORIA-LUZ',
   tagline: 'Tatouage artistique & reconstruction corporelle',
-  /** Mail en cours de changement, placeholder à mettre à jour. */
-  email: 'contact@enluzd.fr',
+  email: 'contact@victoria-luz.fr',
   phone: '06 67 51 55 12',
   phoneHref: '+33667515512',
   address: '6 avenue Pasteur, 49100 Angers',
   city: 'Angers',
   instagram: '@enluzd',
   instagramUrl: 'https://instagram.com/enluzd',
-  instagramReconstruction: '@enluzd_reconstruction',
-  instagramReconstructionUrl: 'https://instagram.com/enluzd_reconstruction',
+  /** Compte Instagram du podcast « Sous nos cicatrices ». */
+  instagramPodcast: '@sous.nos.cicatrices',
+  instagramPodcastUrl: 'https://www.instagram.com/sous.nos.cicatrices/',
   /** Prise de rendez-vous en ligne. */
   planity: 'https://www.planity.com/enluzd-49100-angers',
   /** Podcast « Sous nos cicatrices ». */

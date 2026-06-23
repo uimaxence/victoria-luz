@@ -96,12 +96,12 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href={SITE.instagramReconstructionUrl}
+                  href={SITE.instagramPodcastUrl}
                   className="hover:text-rose"
                   rel="noreferrer noopener"
                   target="_blank"
                 >
-                  Instagram {SITE.instagramReconstruction}
+                  Instagram {SITE.instagramPodcast}
                 </a>
               </li>
             </ul>

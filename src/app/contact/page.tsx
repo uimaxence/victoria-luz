@@ -32,9 +32,9 @@ export default function ContactPage() {
       external: true,
     },
     {
-      label: 'Instagram reconstruction',
-      value: SITE.instagramReconstruction,
-      href: SITE.instagramReconstructionUrl,
+      label: 'Instagram podcast',
+      value: SITE.instagramPodcast,
+      href: SITE.instagramPodcastUrl,
       external: true,
     },
   ];
