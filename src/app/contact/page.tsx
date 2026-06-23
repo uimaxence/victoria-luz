@@ -47,8 +47,8 @@ export default function ContactPage() {
         script="à bientôt"
         lead="Tatouage artistique ou reconstruction : chaque rencontre commence par une conversation, sans engagement et en toute confidentialité."
         image={{
-          src: '/img/portrait-flower.jpg',
-          alt: 'Portrait délicat, une fleur à la main',
+          src: '/img/photos/floral_1.webp',
+          alt: 'Tatouage floral délicat, douceur du trait',
           objectPosition: 'center 25%',
         }}
         floral={{ name: 'Pivoine_2_creme', width: 150 }}

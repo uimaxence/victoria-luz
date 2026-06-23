@@ -30,8 +30,8 @@ export default function QuiSuisJePage() {
         script="Victoria"
         lead="J’ai la conviction que le tatouage peut être bien plus qu’une œuvre sur la peau : un véritable outil de réappropriation de soi."
         image={{
-          src: '/img/portrait-flower.jpg',
-          alt: 'Portrait délicat de Victoria-Luz, une fleur à la main',
+          src: '/img/photos/moi.webp',
+          alt: 'Portrait de Victoria-Luz',
           objectPosition: 'center 25%',
         }}
         floral={{ name: 'Pivoine_4_marron', width: 150 }}
@@ -132,8 +132,8 @@ export default function QuiSuisJePage() {
               delay={0.16}
             >
               <ImageFrame
-                src="/img/bodies.jpg"
-                alt="Silhouettes baignées de lumière, la beauté des corps sans artifice"
+                src="/img/photos/img_8511.webp"
+                alt="Tatouage floral fin sur l’avant-bras, rose et croissant de lune"
                 ratio="portrait"
                 sizes="(max-width: 768px) 100vw, 30vw"
                 objectPosition="center 30%"

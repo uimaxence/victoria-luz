@@ -23,7 +23,7 @@ export default function HomePage() {
         heading="Chaque trait raconte une histoire"
         script={['l’art', 'dans le détail']}
         image={{
-          src: '/img/skin-shoulder.jpg',
+          src: '/img/photos/ornemental_5.webp',
           alt: 'Détail d’une épaule à la lumière douce, la peau comme support sensible',
           ratio: 'landscape',
           objectPosition: 'center 35%',
@@ -41,14 +41,14 @@ export default function HomePage() {
         heading="Se sentir soi, pleinement"
         script={['rayonner']}
         image={{
-          src: '/img/bodies.jpg',
+          src: '/img/photos/floral_2.webp',
           alt: 'Silhouettes baignées de lumière, la beauté des corps, sans artifice',
           ratio: 'landscape',
           objectPosition: 'center 30%',
         }}
         secondary={{
-          src: '/img/portrait-flower.jpg',
-          alt: 'Portrait délicat, une fleur à la main',
+          src: '/img/photos/img_8816.webp',
+          alt: 'Tatouage floral délicat au poignet, trait fin',
           ratio: 'square',
           objectPosition: 'center 25%',
         }}

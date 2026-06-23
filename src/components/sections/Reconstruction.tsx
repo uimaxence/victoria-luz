@@ -25,8 +25,8 @@ export default function Reconstruction() {
               className="absolute -left-4 -top-6 h-full w-full rounded-token bg-chocolat md:-left-8 md:-top-8"
             />
             <ImageFrame
-              src="/img/reconstruction-scar.jpg"
-              alt="Peau apaisée portant une fine cicatrice, la trace d’un parcours, accompagnée avec douceur"
+              src="/img/photos/sourcil_2_1.webp"
+              alt="Reconstruction des sourcils, début de séance, accompagnée avec douceur"
               ratio="portrait"
               sizes="(max-width: 768px) 100vw, 40vw"
               objectPosition="center"
@@ -36,8 +36,8 @@ export default function Reconstruction() {
             {/* Seconde image qui chevauche en bas à droite (desktop) */}
             <div className="absolute -bottom-10 -right-6 hidden w-2/5 md:-right-10 md:block">
               <ImageFrame
-                src="/img/skin-shoulder.jpg"
-                alt="Détail d’une épaule en pleine lumière, la matière de la peau, respectée"
+                src="/img/photos/sourcil_2_4.webp"
+                alt="Reconstruction des sourcils, résultat naturel après la séance"
                 ratio="square"
                 framed
                 sizes="20vw"

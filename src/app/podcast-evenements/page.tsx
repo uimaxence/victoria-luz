@@ -56,8 +56,8 @@ export default function PodcastEvenementsPage() {
         script="ensemble"
         lead="Derrière chaque cicatrice, visible ou invisible, se cache une histoire qui mérite d’être entendue. Un espace de parole où des femmes donnent la parole à d’autres femmes."
         image={{
-          src: '/img/community-tulips.jpg',
-          alt: 'Femmes réunies, fleurs à la main, la force du collectif',
+          src: '/img/photos/floral_2.webp',
+          alt: 'Tatouage floral délicat, féminité et douceur du trait',
           objectPosition: 'center 25%',
         }}
         floral={{ name: 'Pivoine_1_rose', width: 150 }}

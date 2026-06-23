@@ -36,8 +36,8 @@ export default function ArtisteTatoueusePage() {
         script="sur-mesure"
         lead="Chaque création est pensée sur mesure, en harmonie avec votre morphologie, votre personnalité et vos envies, pour devenir une œuvre unique que vous porterez toute votre vie."
         image={{
-          src: '/img/skin-shoulder.jpg',
-          alt: 'Détail d’une épaule tatouée à la lumière douce, la peau comme support sensible',
+          src: '/img/photos/img_8643.webp',
+          alt: 'Tatouage ornemental rayonnant dans le dos, trait fin',
           objectPosition: 'center 35%',
         }}
         floral={{ name: 'Pivoine_1_rose', width: 150 }}

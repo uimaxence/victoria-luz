@@ -26,7 +26,7 @@ export default function Approach() {
               L’approche · Victoria-Luz
             </span>
             <ImageFrame
-              src="/img/approach-skin.jpg"
+              src="/img/photos/ornemental_3.webp"
               alt="Détail d’une peau lumineuse et d’un geste précis, l’attention portée à la matière et au corps"
               ratio="tall"
               framed

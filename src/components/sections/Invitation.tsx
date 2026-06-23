@@ -48,8 +48,8 @@ export default function Invitation() {
             delay={0.16}
           >
             <ImageFrame
-              src="/img/community-tulips.jpg"
-              alt="Trois femmes réunies, fleurs à la main, la force du collectif et de la beauté retrouvée"
+              src="/img/photos/floral_4.webp"
+              alt="Tatouage floral délicat, douceur et féminité du trait"
               ratio="portrait"
               sizes="(max-width: 768px) 100vw, 44vw"
               objectPosition="center 25%"

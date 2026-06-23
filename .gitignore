@@ -8,6 +8,10 @@
 # misc
 .DS_Store
 *.pem
+# gros fichiers vidéo source (non servis par le site)
+*.MOV
+*.mov
+*.mp4
 # debug
 npm-debug.log*
 # env

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import PageHeader from '@/components/sections/PageHeader';
+import ImageFrame from '@/components/ImageFrame';
 import Reveal from '@/components/Reveal';
 import Floral from '@/components/Floral';
 import Stamp from '@/components/Stamp';
@@ -30,8 +31,8 @@ export default function ReconstructionPage() {
         script="reconstruire"
         lead="Une maladie, une opération, une grossesse ou un accident peuvent laisser des marques qui impactent l’image de soi. Le tatouage réparateur est une manière délicate de redonner ce qui a été perdu."
         image={{
-          src: '/img/reconstruction-scar.jpg',
-          alt: 'Peau apaisée portant une fine cicatrice, accompagnée avec douceur',
+          src: '/img/photos/reconstruction-hero.webp',
+          alt: 'Trois femmes aux corps différents, fleurs à la main : se réapproprier son corps en douceur',
           objectPosition: 'center',
         }}
         floral={{ name: 'Pivoine_3_creme', width: 150 }}
@@ -194,6 +195,47 @@ export default function ReconstructionPage() {
                   </li>
                 ))}
               </ul>
+            </Reveal>
+
+            {/* Évolution sourcils, exemples réels (avant / séances) */}
+            <Reveal className="col-span-12 mt-6" delay={0.16}>
+              <p className="t-hand -rotate-2 text-rose">sourcils · l’évolution</p>
+              <h3 className="mt-3 max-w-[22ch] t-h3 text-chocolat">
+                Quelques parcours, séance après séance
+              </h3>
+
+              <div className="mt-8 space-y-10">
+                {/* Premier parcours, avant / après */}
+                <div className="grid grid-cols-2 gap-3 sm:max-w-md">
+                  {[
+                    { src: '/img/photos/sourcil_1_1.webp', label: 'Avant' },
+                    { src: '/img/photos/sourcil_1_2.webp', label: 'Après' },
+                  ].map((s) => (
+                    <ImageFrame
+                      key={s.src}
+                      src={s.src}
+                      alt={`Reconstruction des sourcils, ${s.label.toLowerCase()}`}
+                      ratio="square"
+                      caption={s.label}
+                      sizes="(max-width: 768px) 45vw, 22vw"
+                    />
+                  ))}
+                </div>
+
+                {/* Second parcours, évolution sur plusieurs séances */}
+                <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                  {[1, 2, 3, 4].map((n) => (
+                    <ImageFrame
+                      key={n}
+                      src={`/img/photos/sourcil_2_${n}.webp`}
+                      alt={`Reconstruction des sourcils, séance ${n}`}
+                      ratio="square"
+                      caption={`Séance ${n}`}
+                      sizes="(max-width: 768px) 45vw, 20vw"
+                    />
+                  ))}
+                </div>
+              </div>
             </Reveal>
           </div>
         </div>
