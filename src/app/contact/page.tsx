@@ -86,7 +86,7 @@ export default function ContactPage() {
                         {...(b.external
                           ? { target: '_blank', rel: 'noreferrer noopener' }
                           : {})}
-                        className="t-h3 font-display text-chocolat transition-colors hover:text-bleu-klein"
+                        className="t-h3 font-display text-chocolat transition-colors hover:text-accent"
                       >
                         {b.value}
                       </a>

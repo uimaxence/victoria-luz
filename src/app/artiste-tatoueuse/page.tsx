@@ -27,6 +27,7 @@ export default function ArtisteTatoueusePage() {
     <>
       <PageHeader
         eyebrow="Tatouage artistique · Enluzd"
+        tattoo
         title={[
           { text: 'Raconter' },
           { text: 'une histoire,' },
@@ -43,7 +44,8 @@ export default function ArtisteTatoueusePage() {
       />
 
       {/* ---- Intro ---- */}
-      <section className="relative isolate overflow-hidden bg-nude has-grain">
+      <section className="relative isolate overflow-hidden bg-nude has-grain has-texture">
+        <span className="texture-layer" aria-hidden />
         <span className="grain-layer" aria-hidden />
         <div className="container-page py-16 md:py-24">
           <div className="grid-12 gap-y-8">
@@ -84,7 +86,8 @@ export default function ArtisteTatoueusePage() {
       </section>
 
       {/* ---- CTA double ---- */}
-      <section className="relative isolate overflow-hidden bg-marron text-creme has-grain is-dark">
+      <section className="relative isolate overflow-hidden bg-marron text-creme has-grain has-texture is-dark">
+        <span className="texture-layer" aria-hidden />
         <span className="grain-layer" aria-hidden />
         <Floral
           name="Pivoine_4_creme"

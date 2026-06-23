@@ -12,12 +12,29 @@ import { NAV_LINKS, SITE } from '@/lib/site';
 export default function Nav({ invert = false }: { invert?: boolean }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  // Vrai quand la barre sticky chevauche une section sombre (.is-dark) :
+  // on bascule alors en tons clairs pour rester lisible sur le marron.
+  const [overDark, setOverDark] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    const sync = () => {
+      setScrolled(window.scrollY > 24);
+      // Point de sonde : milieu de la barre (~32 px sous le haut de l'écran).
+      const probeY = 32;
+      let dark = false;
+      document.querySelectorAll('.is-dark').forEach((el) => {
+        const r = el.getBoundingClientRect();
+        if (r.top <= probeY && r.bottom >= probeY) dark = true;
+      });
+      setOverDark(dark);
+    };
+    sync();
+    window.addEventListener('scroll', sync, { passive: true });
+    window.addEventListener('resize', sync);
+    return () => {
+      window.removeEventListener('scroll', sync);
+      window.removeEventListener('resize', sync);
+    };
   }, []);
 
   // Verrouille le scroll quand le menu mobile est ouvert
@@ -28,9 +45,10 @@ export default function Nav({ invert = false }: { invert?: boolean }) {
     };
   }, [open]);
 
-  const tone = invert ? 'text-creme' : 'text-chocolat';
+  const light = invert || overDark;
+  const tone = light ? 'text-creme' : 'text-chocolat';
   const bar = scrolled
-    ? invert
+    ? light
       ? 'bg-marron/90 backdrop-blur-sm border-b border-line-invert'
       : 'bg-creme/85 backdrop-blur-sm border-b border-line'
     : 'bg-transparent border-b border-transparent';
@@ -61,7 +79,7 @@ export default function Nav({ invert = false }: { invert?: boolean }) {
                 <span
                   aria-hidden
                   className={`absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 transition-transform duration-[var(--dur-1)] ease-soft group-hover:scale-x-100 ${
-                    invert ? 'bg-creme' : 'bg-bleu-klein'
+                    light ? 'bg-creme' : 'bg-accent'
                   }`}
                 />
               </Link>
@@ -70,7 +88,7 @@ export default function Nav({ invert = false }: { invert?: boolean }) {
           <li>
             <Link
               href="/contact"
-              className="rounded-token bg-bleu-klein px-4 py-2 text-small uppercase tracking-[0.14em] text-creme transition-colors duration-[var(--dur-1)] hover:bg-chocolat"
+              className="rounded-token bg-accent px-4 py-2 text-small uppercase tracking-[0.14em] text-chocolat transition-colors duration-[var(--dur-1)] hover:bg-chocolat hover:text-creme"
             >
               Rendez-vous
             </Link>
@@ -121,7 +139,7 @@ export default function Nav({ invert = false }: { invert?: boolean }) {
               <Link
                 href="/contact"
                 onClick={() => setOpen(false)}
-                className="inline-flex rounded-token bg-bleu-klein px-6 py-3 text-small uppercase tracking-[0.16em] text-creme"
+                className="inline-flex rounded-token bg-accent px-6 py-3 text-small uppercase tracking-[0.16em] text-chocolat"
               >
                 Prendre rendez-vous →
               </Link>

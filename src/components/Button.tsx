@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 
 /**
  * Boutons (design.md §6) :
- * - primary   : aplat Bleu Klein, texte Crème. Hover → Chocolat.
+ * - primary   : aplat accent (rose), texte Chocolat. Hover → Chocolat / texte Crème.
  * - secondary : contour 1px Chocolat, fond transparent. Hover → remplissage.
  * - link      : Work Sans, soulignement animé (0 → 100%).
  * - explore   : pastille ronde (contour), micro-rotation au survol.
@@ -47,7 +47,7 @@ export default function Button({
   if (variant === 'primary') {
     return (
       <Anchor
-        className={`${base} rounded-token bg-bleu-klein px-5 py-3 text-small uppercase tracking-[0.12em] text-creme hover:bg-chocolat sm:px-6 sm:tracking-[0.16em] ${className}`}
+        className={`${base} rounded-token bg-accent px-5 py-3 text-small uppercase tracking-[0.12em] text-chocolat hover:bg-chocolat hover:text-creme sm:px-6 sm:tracking-[0.16em] ${className}`}
       >
         <span>{children}</span>
         <Arrow />
@@ -74,7 +74,7 @@ export default function Button({
     return (
       <Anchor
         aria-label={typeof children === 'string' ? children : 'Explorer'}
-        className={`${base} aspect-square h-28 w-28 flex-col justify-center rounded-full border text-center text-caption uppercase tracking-[0.2em] hover:bg-bleu-klein hover:text-creme hover:border-bleu-klein ${tone} ${className}`}
+        className={`${base} aspect-square h-28 w-28 flex-col justify-center rounded-full border text-center text-caption uppercase tracking-[0.2em] hover:bg-accent hover:text-chocolat hover:border-accent ${tone} ${className}`}
       >
         <span className="block leading-tight">{children}</span>
         <span className="mt-1 inline-block transition-transform duration-[var(--dur-2)] ease-soft group-hover:rotate-90">
@@ -85,7 +85,7 @@ export default function Button({
   }
 
   // link
-  const tone = invert ? 'text-creme' : 'text-bleu-klein';
+  const tone = invert ? 'text-creme' : 'text-accent';
   return (
     <Anchor
       className={`${base} relative w-fit text-small uppercase tracking-[0.16em] ${tone} ${className}`}
@@ -95,7 +95,7 @@ export default function Button({
         <span
           aria-hidden
           className={`absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 transition-transform duration-[var(--dur-1)] ease-soft group-hover:scale-x-100 ${
-            invert ? 'bg-creme' : 'bg-bleu-klein'
+            invert ? 'bg-creme' : 'bg-accent'
           }`}
         />
       </span>

@@ -122,21 +122,21 @@ export default function ReconstructionPage() {
               </p>
               <ul className="space-y-3">
                 <li className="flex gap-3 border-t border-line pt-4">
-                  <span aria-hidden className="text-bleu-klein">—</span>
+                  <span aria-hidden className="mt-3 h-px w-4 shrink-0 bg-accent" />
                   <span>
                     Pour les tatouages reconstructeurs, il est indispensable de ne plus être
                     sous chimiothérapie.
                   </span>
                 </li>
                 <li className="flex gap-3 border-t border-line pt-4">
-                  <span aria-hidden className="text-bleu-klein">—</span>
+                  <span aria-hidden className="mt-3 h-px w-4 shrink-0 bg-accent" />
                   <span>
                     Pour la reconstruction d’aréole mammaire, les traitements par radiothérapie
                     doivent être terminés et les tissus suffisamment cicatrisés.
                   </span>
                 </li>
                 <li className="flex gap-3 border-t border-line pt-4">
-                  <span aria-hidden className="text-bleu-klein">—</span>
+                  <span aria-hidden className="mt-3 h-px w-4 shrink-0 bg-accent" />
                   <span>
                     Chaque projet fait l’objet d’une étude personnalisée, adaptée à votre
                     histoire, votre peau et vos attentes.

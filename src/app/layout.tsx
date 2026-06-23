@@ -37,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-screen bg-creme text-chocolat antialiased">
         <a
           href="#contenu"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-token focus:bg-bleu-klein focus:px-4 focus:py-2 focus:text-creme"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-token focus:bg-accent focus:px-4 focus:py-2 focus:text-chocolat"
         >
           Aller au contenu
         </a>

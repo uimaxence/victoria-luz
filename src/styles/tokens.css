@@ -13,7 +13,7 @@
   --marron: #733b2b; /* Fond foncé chaleureux, blocs immersifs */
   --chocolat: #3b1712; /* Texte courant, fond très foncé, contraste */
   --bleuet: #829cd1; /* Accent doux, détails, bien-être */
-  --bleu-klein: #243385; /* Accent fort / CTA / liens / boutons */
+  --bleu-klein: #243385; /* Réservé à la partie TATOUAGE uniquement (cf. --accent) */
 
   /* ---- Rôles sémantiques (design.md §2) ------------------------------- */
   --bg: var(--creme);
@@ -24,7 +24,7 @@
   --text-invert: var(--creme); /* texte sur fond foncé */
   --text-muted: color-mix(in srgb, var(--chocolat) 64%, transparent);
   --text-invert-muted: color-mix(in srgb, var(--creme) 70%, transparent);
-  --accent: var(--bleu-klein); /* CTA, liens, focus */
+  --accent: var(--rose); /* CTA, liens, focus, highlights (hors tatouage). Le bleu (--bleu-klein) est réservé au tatouage. */
   --accent-warm: var(--rose); /* manuscrit, highlights display */
   --accent-soft: var(--bleuet); /* détails secondaires */
   --line: color-mix(in srgb, var(--chocolat) 18%, transparent);

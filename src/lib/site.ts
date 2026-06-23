@@ -86,7 +86,7 @@ export const TATTOO_STYLES = [
   {
     num: '03',
     title: 'Typographique',
-    desc: 'Un mot, une phrase ou quelques lettres peuvent raconter toute une histoire. Le tatouage typographique immortalise un souvenir, une valeur ou un message. Chaque écriture est choisie ou créée selon votre projet — il est même possible de reproduire l’écriture d’un proche, pour conserver une trace unique et profondément symbolique.',
+    desc: 'Un mot, une phrase ou quelques lettres peuvent raconter toute une histoire. Le tatouage typographique immortalise un souvenir, une valeur ou un message. Chaque écriture est choisie ou créée selon votre projet : il est même possible de reproduire l’écriture d’un proche, pour conserver une trace unique et profondément symbolique.',
     image: '/img/portrait-flower.jpg',
   },
 ] as const;
@@ -131,7 +131,7 @@ export const MAQUILLAGE_SERVICES = [
 
 /* =========================================================================
    Podcast « Sous nos cicatrices » (§ brief)
-   Épisodes placeholder — défilement horizontal (design.md §4.2 gallery-scroll).
+   Épisodes placeholder · défilement horizontal (design.md §4.2 gallery-scroll).
    ========================================================================= */
 export const PODCAST_EPISODES = [
   {
@@ -159,7 +159,7 @@ export const PODCAST_EPISODES = [
     num: '04',
     title: 'Le deuil et ses empreintes',
     guest: 'Témoignage',
-    excerpt: 'Comment le corps garde la mémoire de ce que l’on traverse — et comment on apprend à le porter.',
+    excerpt: 'Comment le corps garde la mémoire de ce que l’on traverse, et comment on apprend à le porter.',
     image: '/img/portrait-flower.jpg',
   },
   {
@@ -182,10 +182,19 @@ export const PODCAST_EPISODES = [
    Événements & actualités (§ brief)
    Contenu placeholder, à affiner avec Victoria.
    ========================================================================= */
+/** Bandeau d'annonce affiché en haut de la page Podcast & événements.
+ *  `text` est volontairement provisoire : à personnaliser ensuite. */
+export const EVENT_BANNER = {
+  label: 'Événements en cours',
+  text: 'Octobre Rose au studio, phrase à personnaliser bientôt.',
+  cta: 'En savoir plus',
+  href: '#evenement',
+};
+
 export const FEATURED_EVENT = {
   status: 'En cours',
   date: 'Saison 2026',
-  title: 'Octobre Rose — Tatouages réparateurs',
+  title: 'Octobre Rose, tatouages réparateurs',
   place: 'Studio Enluzd · Angers',
   desc: "Tout au long de la saison, un accompagnement dédié aux femmes en parcours de reconstruction : aréole mammaire 3D, camouflage de cicatrices et temps d'écoute. Un espace bienveillant pour avancer à votre rythme.",
   image: '/img/community-tulips.jpg',

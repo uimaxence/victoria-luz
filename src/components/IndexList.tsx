@@ -60,7 +60,7 @@ export default function IndexList({ items }: { items: readonly IndexItem[] }) {
               <span className="t-surtitre md:col-span-1 md:pt-2">({item.num})</span>
 
               {/* titre */}
-              <span className="t-h3 col-span-1 font-display text-chocolat transition-transform duration-[var(--dur-1)] ease-soft group-hover:translate-x-2 group-hover:text-bleu-klein md:col-span-6">
+              <span className="t-h3 col-span-1 font-display text-chocolat transition-transform duration-[var(--dur-1)] ease-soft group-hover:translate-x-2 group-hover:text-accent md:col-span-6">
                 {item.title}
               </span>
 
@@ -72,7 +72,7 @@ export default function IndexList({ items }: { items: readonly IndexItem[] }) {
               {/* flèche */}
               <span
                 aria-hidden
-                className="hidden text-h3 text-bleu-klein opacity-0 transition-all duration-[var(--dur-1)] ease-soft group-hover:translate-x-1 group-hover:opacity-100 md:col-span-1 md:block md:justify-self-end"
+                className="hidden text-h3 text-accent opacity-0 transition-all duration-[var(--dur-1)] ease-soft group-hover:translate-x-1 group-hover:opacity-100 md:col-span-1 md:block md:justify-self-end"
               >
                 →
               </span>

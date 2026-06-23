@@ -51,13 +51,13 @@ export default function Hero() {
               tatouage,
             </span>
             <span
-              className="reveal-load t-display block text-bleu-klein"
+              className="reveal-load t-display block text-accent"
               style={{ ['--delay' as string]: '0.28s' }}
             >
               le soin
             </span>
             <span
-              className="reveal-load t-display block text-bleu-klein"
+              className="reveal-load t-display block text-accent"
               style={{ ['--delay' as string]: '0.34s' }}
             >
               du corps

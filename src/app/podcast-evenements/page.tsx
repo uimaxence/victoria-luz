@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 import PageHeader from '@/components/sections/PageHeader';
 import HorizontalPodcast from '@/components/HorizontalPodcast';
 import ImageFrame from '@/components/ImageFrame';
 import Reveal from '@/components/Reveal';
 import Floral from '@/components/Floral';
 import Button from '@/components/Button';
-import { PODCAST_EPISODES, FEATURED_EVENT, PAST_EVENTS, SITE } from '@/lib/site';
+import { PODCAST_EPISODES, EVENT_BANNER, FEATURED_EVENT, PAST_EVENTS, SITE } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Podcast & événements',
@@ -23,6 +24,32 @@ export const metadata: Metadata = {
 export default function PodcastEvenementsPage() {
   return (
     <>
+      {/* ===================================================================
+          BANDEAU annonce, événements en cours (rose, en haut de page, lien
+          vers le détail). Placé avant le hero pour rester tout en haut.
+          =================================================================== */}
+      <Link
+        href={EVENT_BANNER.href}
+        className="group relative z-30 block bg-rose text-chocolat transition-colors duration-[var(--dur-1)] hover:bg-accent"
+      >
+        <div className="container-page flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 py-3 text-center">
+          <span className="inline-flex items-center gap-2 t-surtitre">
+            <span className="relative flex h-2 w-2" aria-hidden>
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-chocolat opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-chocolat" />
+            </span>
+            {EVENT_BANNER.label}
+          </span>
+          <span aria-hidden className="hidden text-chocolat/40 sm:inline">
+            ·
+          </span>
+          <span className="text-small">{EVENT_BANNER.text}</span>
+          <span className="text-small font-medium underline-offset-4 group-hover:underline">
+            {EVENT_BANNER.cta} →
+          </span>
+        </div>
+      </Link>
+
       <PageHeader
         eyebrow="Podcast & événements · Enluzd"
         title={[{ text: 'Sous nos' }, { text: 'cicatrices', accent: true }]}
@@ -33,13 +60,13 @@ export default function PodcastEvenementsPage() {
           alt: 'Femmes réunies, fleurs à la main, la force du collectif',
           objectPosition: 'center 25%',
         }}
-        floral={{ name: 'Pivoine_1_bleuet', width: 150 }}
+        floral={{ name: 'Pivoine_1_rose', width: 150 }}
       />
 
       {/* ===================================================================
           ÉVÉNEMENT EN AVANT (en cours)
           =================================================================== */}
-      <section className="relative isolate overflow-hidden bg-nude has-grain">
+      <section id="evenement" className="relative isolate scroll-mt-24 overflow-hidden bg-nude has-grain">
         <span className="grain-layer" aria-hidden />
         <div className="container-page py-20 md:py-28">
           <Reveal as="p" className="t-surtitre">
@@ -62,10 +89,10 @@ export default function PodcastEvenementsPage() {
                 className="relative"
               />
               {/* Badge « En cours » */}
-              <span className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-token bg-bleu-klein px-4 py-2 text-caption uppercase tracking-[0.18em] text-creme">
+              <span className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-token bg-accent px-4 py-2 text-caption uppercase tracking-[0.18em] text-chocolat">
                 <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-creme opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-creme" />
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-chocolat opacity-75" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-chocolat" />
                 </span>
                 {FEATURED_EVENT.status}
               </span>
@@ -79,7 +106,7 @@ export default function PodcastEvenementsPage() {
 
             {/* Détail */}
             <div className="col-span-12 md:col-span-5 md:pl-gutter lg:pl-12">
-              <Reveal as="p" className="t-surtitre text-bleu-klein" delay={0.06}>
+              <Reveal as="p" className="t-surtitre text-accent" delay={0.06}>
                 {FEATURED_EVENT.date} · {FEATURED_EVENT.place}
               </Reveal>
               <Reveal as="h2" className="mt-4 max-w-[18ch] t-h1 text-chocolat" delay={0.12}>
@@ -99,7 +126,7 @@ export default function PodcastEvenementsPage() {
       </section>
 
       {/* ===================================================================
-          PODCAST — présentation
+          PODCAST · présentation
           =================================================================== */}
       <section className="relative isolate overflow-hidden bg-creme has-grain">
         <span className="grain-layer" aria-hidden />
@@ -117,7 +144,7 @@ export default function PodcastEvenementsPage() {
               <Reveal as="p" delay={0.12}>
                 Ensemble, nous abordons des sujets encore trop peu évoqués : le cancer, les
                 grossesses et le post-partum, les syndromes, les maladies chroniques, les
-                traumatismes physiques ou psychologiques, le deuil ou l’adoption — toutes ces
+                traumatismes physiques ou psychologiques, le deuil ou l’adoption, toutes ces
                 épreuves qui laissent une empreinte sur nos vies.
               </Reveal>
               <Reveal as="p" delay={0.18}>
@@ -132,7 +159,7 @@ export default function PodcastEvenementsPage() {
       </section>
 
       {/* ===================================================================
-          PODCAST — défilement horizontal des extraits
+          PODCAST · défilement horizontal des extraits
           =================================================================== */}
       <HorizontalPodcast episodes={PODCAST_EPISODES} youtube={SITE.youtube} />
 
@@ -165,7 +192,7 @@ export default function PodcastEvenementsPage() {
                     className="object-cover"
                   />
                 </div>
-                <p className="mt-4 t-surtitre text-bleu-klein">{ev.date}</p>
+                <p className="mt-4 t-surtitre text-accent">{ev.date}</p>
                 <h3 className="mt-2 t-h3 font-display text-chocolat">{ev.title}</h3>
                 <p className="mt-2 max-w-[40ch] text-small text-text-muted">{ev.desc}</p>
               </Reveal>
@@ -175,7 +202,7 @@ export default function PodcastEvenementsPage() {
       </section>
 
       {/* ===================================================================
-          CTA — témoigner
+          CTA · témoigner
           =================================================================== */}
       <section className="relative isolate overflow-hidden bg-marron text-creme has-grain is-dark">
         <span className="grain-layer" aria-hidden />

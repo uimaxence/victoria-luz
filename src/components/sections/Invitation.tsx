@@ -17,7 +17,7 @@ export default function Invitation() {
         <div className="grid-12 items-center gap-y-12">
           {/* Texte, poussé à gauche */}
           <div className="col-span-12 md:col-span-6 lg:col-span-5">
-            <Reveal as="p" className="t-hand -rotate-3 text-rose" delay={0.05}>
+            <Reveal as="p" className="t-hand whitespace-nowrap -rotate-3 text-rose" delay={0.05}>
               la lumière revient
             </Reveal>
             <Reveal as="h2" className="mt-4 max-w-[16ch] t-h1 text-chocolat" delay={0.12}>

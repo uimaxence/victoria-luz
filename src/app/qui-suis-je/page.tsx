@@ -74,7 +74,7 @@ export default function QuiSuisJePage() {
                 {
                   year: 'Aujourd’hui',
                   title: 'Une mission qui dépasse le tatouage',
-                  body: "Reconstruction après un cancer, camouflage de cicatrices, ou simplement retrouver confiance en son corps : mon objectif reste le même — offrir un espace où chacune se sent écoutée, respectée et libre d’être elle-même.",
+                  body: "Reconstruction après un cancer, camouflage de cicatrices, ou simplement retrouver confiance en son corps : mon objectif reste le même, offrir un espace où chacune se sent écoutée, respectée et libre d’être elle-même.",
                 },
               ].map((item, i) => (
                 <Reveal
@@ -83,7 +83,7 @@ export default function QuiSuisJePage() {
                   className="grid grid-cols-12 gap-x-8 gap-y-3 border-t border-line py-8 first:border-t-0 md:py-10"
                   delay={0.1 + i * 0.08}
                 >
-                  <span className="col-span-12 break-words font-display text-h3 leading-[1.02] text-bleu-klein md:col-span-4 md:pr-6 lg:text-h2">
+                  <span className="col-span-12 break-words font-display text-h3 leading-[1.02] text-accent md:col-span-4 md:pr-6 lg:text-h2">
                     {item.year}
                   </span>
                   <div className="col-span-12 md:col-span-8">

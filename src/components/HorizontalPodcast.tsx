@@ -12,7 +12,7 @@ import { useEffect, useRef, useState } from 'react';
  *
  * Important : en mode hijack, le contenu collé tient INTÉGRALEMENT dans le viewport
  * (header + rangée centrée, sans débordement vertical). Ainsi l'utilisateur ne
- * perçoit que le mouvement horizontal — pas de double défilement.
+ * perçoit que le mouvement horizontal, pas de double défilement.
  *
  * Robustesse :
  * - Hijack réservé aux grands écrans à pointeur fin, hors prefers-reduced-motion.
@@ -132,7 +132,7 @@ export default function HorizontalPodcast({
           <h2 className="mt-4 max-w-[18ch] t-h2 text-creme">Des voix, un extrait à la fois</h2>
           <p className="mt-4 text-small text-text-invert-muted">
             {hijack
-              ? 'Faites défiler ↓ — la rangée avance horizontalement'
+              ? 'Faites défiler ↓ : la rangée avance horizontalement'
               : 'Glissez pour parcourir les extraits →'}
           </p>
         </div>

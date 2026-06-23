@@ -10,7 +10,8 @@ import Floral from '@/components/Floral';
  */
 export default function Approach() {
   return (
-    <section id="approche" className="relative isolate overflow-hidden bg-nude has-grain">
+    <section id="approche" className="relative isolate overflow-hidden bg-nude has-grain has-texture">
+      <span className="texture-layer" aria-hidden />
       <span className="grain-layer" aria-hidden />
 
       <div className="container-page py-20 md:py-32">

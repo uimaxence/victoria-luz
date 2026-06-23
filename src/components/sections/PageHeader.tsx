@@ -12,8 +12,10 @@ type TitleLine = { text: string; accent?: boolean };
 
 type PageHeaderProps = {
   eyebrow: string;
-  /** Lignes du titre display ; `accent` bascule la ligne en Bleu Klein. */
+  /** Lignes du titre display ; `accent` met la ligne en couleur d'accent (rose). */
   title: TitleLine[];
+  /** Page tatouage : l'accent du titre reste en Bleu Klein (réservé au tatouage). */
+  tattoo?: boolean;
   /** Mot manuscrit (Quentin) posé sur l'image. */
   script?: string;
   /** Chapô court sous le titre. */
@@ -25,11 +27,13 @@ type PageHeaderProps = {
 export default function PageHeader({
   eyebrow,
   title,
+  tattoo = false,
   script,
   lead,
   image,
   floral,
 }: PageHeaderProps) {
+  const accentClass = tattoo ? 'text-bleu-klein' : 'text-accent';
   return (
     <section className="relative isolate z-20 overflow-x-clip bg-creme has-grain lg:min-h-[calc(100svh-4.5rem)]">
       <span className="grain-layer" aria-hidden />
@@ -61,7 +65,7 @@ export default function PageHeader({
               <span
                 key={i}
                 className={`reveal-load t-display block ${
-                  line.accent ? 'text-bleu-klein' : 'text-chocolat'
+                  line.accent ? accentClass : 'text-chocolat'
                 }`}
                 style={{ ['--delay' as string]: `${0.12 + i * 0.08}s` }}
               >

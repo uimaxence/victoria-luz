@@ -30,10 +30,10 @@
 
   ::selection {
     background: var(--accent);
-    color: var(--creme);
+    color: var(--chocolat);
   }
 
-  /* Focus visible : anneau Bleu Klein (design.md §9) */
+  /* Focus visible : anneau accent (design.md §9) */
   :focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 3px;
@@ -137,7 +137,33 @@
     background-size: 220px 220px;
   }
   .has-grain.is-dark > .grain-layer { mix-blend-mode: overlay; opacity: 0.12; }
-  .has-grain > * { position: relative; z-index: 1; }
+  /* Remonte le contenu au-dessus du grain. `:where()` annule la spécificité du
+     sélecteur parent pour qu'une utilitaire de position (.absolute sur une fleur
+     décorative, par ex.) l'emporte et ne retombe pas dans le flux. */
+  :where(.has-grain) > * { position: relative; z-index: 1; }
+
+  /* Texture florale douce, voile très subtil en fond de section.
+     Le parent porte `has-texture`, on y place un `<span class="texture-layer">`.
+     Le motif est en relief crème : `multiply` ne révèle que les ombres fines. */
+  .has-texture { position: relative; isolation: isolate; }
+  .has-texture > .texture-layer {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.32;
+    mix-blend-mode: multiply;
+    background-image: url('/texture/texture-1.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* fondu doux vers les bords, mais le motif reste lisible au centre */
+    -webkit-mask-image: radial-gradient(140% 140% at 50% 45%, #000 78%, transparent 100%);
+    mask-image: radial-gradient(140% 140% at 50% 45%, #000 78%, transparent 100%);
+  }
+  .has-texture.is-dark > .texture-layer { mix-blend-mode: overlay; opacity: 0.16; }
+  :where(.has-texture) > * { position: relative; z-index: 1; }
 
   /* Débordement contrôlé (bleed) */
   .bleed-left { margin-left: calc(-1 * var(--page-margin)); }

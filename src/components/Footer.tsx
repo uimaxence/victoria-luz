@@ -9,7 +9,8 @@ import Floral from './Floral';
  */
 export default function Footer() {
   return (
-    <footer className="relative isolate overflow-hidden bg-chocolat text-creme has-grain is-dark">
+    <footer className="relative isolate overflow-hidden bg-chocolat text-creme has-grain has-texture is-dark">
+      <span className="texture-layer" aria-hidden />
       <span className="grain-layer" aria-hidden />
 
       {/* Fleur débordante, basse opacité */}
