@@ -26,10 +26,10 @@ export default function HomePage() {
           src: '/img/photos/ornemental_5.webp',
           alt: 'Détail d’une épaule à la lumière douce, la peau comme support sensible',
           ratio: 'landscape',
-          objectPosition: 'center 35%',
+          objectPosition: 'center 70%',
         }}
         floral={{ name: 'Pivoine_2_rose', width: 150, rotate: -6 }}
-        scriptColor="rose"
+        scriptColor="chocolat"
       />
 
       <Poles />           {/* editorial-index */}
@@ -44,13 +44,13 @@ export default function HomePage() {
           src: '/img/photos/floral_2.webp',
           alt: 'Silhouettes baignées de lumière, la beauté des corps, sans artifice',
           ratio: 'landscape',
-          objectPosition: 'center 30%',
+          objectPosition: 'center 72%',
         }}
         secondary={{
           src: '/img/photos/img_8816.webp',
           alt: 'Tatouage floral délicat au poignet, trait fin',
           ratio: 'square',
-          objectPosition: 'center 25%',
+          objectPosition: 'center 90%',
         }}
         mirror
         tone="nude"

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import PageHeader from '@/components/sections/PageHeader';
+import Image from 'next/image';
 import ImageFrame from '@/components/ImageFrame';
 import Reveal from '@/components/Reveal';
 import Floral from '@/components/Floral';
@@ -30,7 +31,7 @@ export default function QuiSuisJePage() {
         script="Victoria"
         lead="J’ai la conviction que le tatouage peut être bien plus qu’une œuvre sur la peau : un véritable outil de réappropriation de soi."
         image={{
-          src: '/img/photos/moi.webp',
+          src: '/img/photos/qui-suis-je.webp',
           alt: 'Portrait de Victoria-Luz',
           objectPosition: 'center 25%',
         }}
@@ -149,12 +150,21 @@ export default function QuiSuisJePage() {
       {/* ---- Encart podcast ---- */}
       <section className="relative isolate overflow-hidden bg-marron text-creme has-grain is-dark">
         <span className="grain-layer" aria-hidden />
-        <Floral
-          name="Pivoine_4_creme"
-          className="pointer-events-none absolute -right-12 -bottom-10 hidden md:block"
-          opacity={0.1}
-          width={280}
-        />
+        {/* Visuel du podcast, ancré à droite et fondu dans le marron */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-y-0 right-0 hidden w-[64%] md:block lg:w-[56%]"
+        >
+          <Image
+            src="/img/photos/podcast-duo-1.webp"
+            alt=""
+            fill
+            sizes="56vw"
+            className="object-cover object-[center_30%]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-marron via-marron/75 to-marron/15" />
+          <div className="absolute inset-0 bg-gradient-to-b from-marron/40 via-transparent to-marron/45" />
+        </div>
         <div className="container-page py-20 md:py-28">
           <div className="grid-12 items-center gap-y-10">
             <div className="col-span-12 md:col-span-8">

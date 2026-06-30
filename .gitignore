@@ -12,6 +12,8 @@
 *.MOV
 *.mov
 *.mp4
+# … mais on versionne les vidéos web optimisées servies par le site
+!public/video/*.mp4
 # debug
 npm-debug.log*
 # env

@@ -54,6 +54,7 @@ export default function Nav({ invert = false }: { invert?: boolean }) {
     : 'bg-transparent border-b border-transparent';
 
   return (
+    <>
     <header
       className={`sticky top-0 z-50 w-full transition-colors duration-[var(--dur-1)] ${bar}`}
     >
@@ -117,8 +118,11 @@ export default function Nav({ invert = false }: { invert?: boolean }) {
           </span>
         </button>
       </nav>
+    </header>
 
-      {/* Overlay menu mobile */}
+      {/* Overlay menu mobile : rendu hors du <header> car ce dernier passe en
+          backdrop-filter une fois scrollé, ce qui en ferait le bloc conteneur
+          de cet élément fixed et écraserait l'overlay à une hauteur nulle. */}
       {open && (
         <div className="fixed inset-0 top-[64px] z-40 bg-creme lg:hidden has-grain">
           <span className="grain-layer" aria-hidden />
@@ -147,6 +151,6 @@ export default function Nav({ invert = false }: { invert?: boolean }) {
           </ul>
         </div>
       )}
-    </header>
+    </>
   );
 }

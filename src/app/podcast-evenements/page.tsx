@@ -56,11 +56,21 @@ export default function PodcastEvenementsPage() {
         script="ensemble"
         lead="Derrière chaque cicatrice, visible ou invisible, se cache une histoire qui mérite d’être entendue. Un espace de parole où des femmes donnent la parole à d’autres femmes."
         image={{
-          src: '/img/photos/floral_2.webp',
-          alt: 'Tatouage floral délicat, féminité et douceur du trait',
-          objectPosition: 'center 25%',
+          src: '/img/photos/podcast-duo-2.webp',
+          alt: 'Victoria-Luz et son invitée lors de l’enregistrement du podcast Sous nos cicatrices',
+          objectPosition: 'center 35%',
+        }}
+        video={{
+          src: '/video/podcast-cecile.mp4',
+          poster: '/video/podcast-cecile-poster.jpg',
+          objectPosition: 'center 30%',
+        }}
+        videoLink={{
+          href: 'https://www.youtube.com/watch?v=ZqU4Bo2y1AI',
+          label: 'Voir l’épisode sur YouTube',
         }}
         floral={{ name: 'Pivoine_1_rose', width: 150 }}
+        wideMedia
       />
 
       {/* ===================================================================
@@ -120,6 +130,90 @@ export default function PodcastEvenementsPage() {
                   {FEATURED_EVENT.cta.label}
                 </Button>
               </Reveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===================================================================
+          MARIAGES · vidéo en fond, filtre sombre pour la lisibilité de la typo
+          =================================================================== */}
+      <section className="relative isolate overflow-hidden bg-chocolat text-creme has-grain is-dark">
+        {/* Vidéo de fond, muette et en boucle */}
+        <video
+          className="absolute inset-0 h-full w-full object-cover"
+          src="/video/mariage.mp4"
+          poster="/video/mariage-poster.jpg"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden
+        />
+        {/* Filtre sombre, pour garder la typographie lisible par-dessus la vidéo.
+            Style inline : l'opacité Tailwind (chocolat/55…) ne marche pas ici. */}
+        <div
+          aria-hidden
+          className="absolute inset-0"
+          style={{ backgroundColor: 'rgba(59,23,18,0.5)' }}
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              'linear-gradient(to top, rgb(59,23,18) 0%, rgba(59,23,18,0.35) 45%, rgba(59,23,18,0.7) 100%)',
+          }}
+        />
+        <span className="grain-layer" aria-hidden />
+
+        <div className="container-page py-24 md:py-32">
+          <div className="grid-12 items-center gap-y-12">
+            {/* Texte */}
+            <div className="col-span-12 md:col-span-6 lg:col-span-5">
+              <Reveal as="p" className="t-hand -rotate-3 text-rose">
+                oui, je le veux
+              </Reveal>
+              <Reveal as="h2" className="mt-4 max-w-[16ch] t-h1 text-creme" delay={0.1}>
+                Disponible pour vos mariages
+              </Reveal>
+              <Reveal
+                as="p"
+                className="mt-6 max-w-[46ch] text-body text-text-invert-muted"
+                delay={0.16}
+              >
+                Pour célébrer votre union, je me déplace le temps d’un événement : flash
+                éphémères, tatouages souvenirs ou petites attentions délicates à offrir à vos
+                invités. Un moment d’art et de douceur, entièrement à votre image.
+              </Reveal>
+              <Reveal className="mt-8" delay={0.22}>
+                <Button href="/contact" variant="primary">
+                  Me contacter
+                </Button>
+              </Reveal>
+            </div>
+
+            {/* Deux visuels, légèrement décalés */}
+            <div className="col-span-12 md:col-span-6 md:col-start-7">
+              <div className="grid grid-cols-2 gap-4 sm:gap-6">
+                <Reveal className="mt-8 sm:mt-12">
+                  <ImageFrame
+                    src="/img/photos/mariage-1.webp"
+                    alt="Tatouage souvenir réalisé lors d’un mariage"
+                    ratio="portrait"
+                    sizes="(max-width: 768px) 45vw, 26vw"
+                  />
+                </Reveal>
+                <Reveal delay={0.12}>
+                  <ImageFrame
+                    src="/img/photos/mariage-2.webp"
+                    alt="Instant d’un mariage accompagné par Victoria-Luz"
+                    ratio="portrait"
+                    sizes="(max-width: 768px) 45vw, 26vw"
+                  />
+                </Reveal>
+              </div>
             </div>
           </div>
         </div>
@@ -206,12 +300,21 @@ export default function PodcastEvenementsPage() {
           =================================================================== */}
       <section className="relative isolate overflow-hidden bg-marron text-creme has-grain is-dark">
         <span className="grain-layer" aria-hidden />
-        <Floral
-          name="Pivoine_4_creme"
-          className="pointer-events-none absolute -right-12 -bottom-10 hidden md:block"
-          opacity={0.1}
-          width={300}
-        />
+        {/* Visuel du podcast, ancré à droite et fondu dans le marron */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-y-0 right-0 hidden w-[64%] md:block lg:w-[56%]"
+        >
+          <Image
+            src="/img/photos/podcast-duo-1.webp"
+            alt=""
+            fill
+            sizes="56vw"
+            className="object-cover object-[center_30%]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-marron via-marron/75 to-marron/15" />
+          <div className="absolute inset-0 bg-gradient-to-b from-marron/40 via-transparent to-marron/45" />
+        </div>
         <div className="container-page py-20 md:py-28">
           <div className="grid-12 items-end gap-y-10">
             <div className="col-span-12 md:col-span-8">

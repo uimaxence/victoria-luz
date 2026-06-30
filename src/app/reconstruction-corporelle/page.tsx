@@ -237,6 +237,26 @@ export default function ReconstructionPage() {
                 </div>
               </div>
             </Reveal>
+
+            {/* Lèvres, exemples réels de dermopigmentation */}
+            <Reveal className="col-span-12 mt-10" delay={0.18}>
+              <p className="t-hand -rotate-2 text-rose">lèvres · le résultat</p>
+              <h3 className="mt-3 max-w-[22ch] t-h3 text-chocolat">
+                Une couleur ravivée, un contour redessiné
+              </h3>
+
+              <div className="mt-8 grid grid-cols-3 gap-2 sm:max-w-2xl sm:gap-4">
+                {[1, 2, 3].map((n) => (
+                  <ImageFrame
+                    key={n}
+                    src={`/img/photos/levre_${n}.webp`}
+                    alt={`Dermopigmentation des lèvres, exemple ${n}`}
+                    ratio="portrait"
+                    sizes="(max-width: 768px) 30vw, 22vw"
+                  />
+                ))}
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>

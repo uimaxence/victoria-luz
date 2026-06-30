@@ -42,7 +42,7 @@ export const POLES = [
     title: 'Qui suis-je',
     desc: "De l'architecture d'intérieur au tatouage : un même regard sur l'espace, la matière et la composition, mis au service du corps et de l'humain.",
     href: '/qui-suis-je',
-    image: '/img/photos/moi.webp',
+    image: '/img/photos/qui-suis-je.webp',
   },
   {
     num: '02',
@@ -63,7 +63,7 @@ export const POLES = [
     title: 'Podcast & événements',
     desc: '« Sous nos cicatrices » : un espace de parole pour les femmes. Des voix, des parcours, des rencontres et l’actualité du studio.',
     href: '/podcast-evenements',
-    image: '/img/photos/floral_3.webp',
+    image: '/img/photos/podcast-duo-2.webp',
   },
 ] as const;
 
@@ -136,45 +136,45 @@ export const MAQUILLAGE_SERVICES = [
 export const PODCAST_EPISODES = [
   {
     num: '01',
-    title: 'Après le cancer, se reconstruire',
-    guest: 'Témoignage',
-    excerpt: 'Mettre des mots sur l’épreuve, et redécouvrir un corps qui nous ressemble à nouveau.',
-    image: '/img/photos/sourcil_2_2.webp',
-  },
-  {
-    num: '02',
-    title: 'Grossesse & post-partum',
-    guest: 'Témoignage',
-    excerpt: 'Ces transformations dont on parle trop peu, entre joie, vertige et réappropriation de soi.',
+    title: 'Quand accoucher devient une violence',
+    guest: 'Le parcours de Cécile',
+    excerpt: 'Mettre des mots sur les violences obstétricales, et se reconstruire après une maternité éprouvante.',
     image: '/img/photos/grossesse-postpartum.webp',
   },
   {
+    num: '02',
+    title: 'Savoir dire non pour reprendre son pouvoir',
+    guest: 'Le parcours de Caroline',
+    excerpt: 'Poser ses limites, sortir d’une emprise et se réapproprier sa propre voix.',
+    image: '/img/photos/confiance-corps.webp',
+  },
+  {
     num: '03',
-    title: 'Vivre avec une maladie chronique',
-    guest: 'Témoignage',
+    title: 'Invisible mais réel : vivre avec la maladie de Crohn',
+    guest: 'Avec Audrey',
     excerpt: 'Les cicatrices invisibles, le quotidien, et la force tranquille de celles qui avancent.',
     image: '/img/photos/1a392b84-bfaa-470b-9a36-4311025a7be6.webp',
   },
   {
     num: '04',
-    title: 'Le deuil et ses empreintes',
-    guest: 'Témoignage',
-    excerpt: 'Comment le corps garde la mémoire de ce que l’on traverse, et comment on apprend à le porter.',
+    title: 'Le corps comme protection',
+    guest: 'Le parcours d’Andréa',
+    excerpt: 'Quand le corps se transforme pour se protéger, et le chemin pour se retrouver.',
     image: '/img/photos/img_0048.webp',
   },
   {
     num: '05',
-    title: 'Adoption & histoires familiales',
-    guest: 'Témoignage',
-    excerpt: 'Les parcours qui nous construisent, les liens choisis, les silences que l’on brise.',
+    title: 'L’amour comme guérison',
+    guest: 'Interview',
+    excerpt: 'Les liens, la tendresse et l’amour comme appuis sur le chemin de la reconstruction.',
     image: '/img/photos/img_2873.webp',
   },
   {
     num: '06',
-    title: 'Retrouver confiance en son corps',
-    guest: 'Témoignage',
-    excerpt: 'Regarder nos cicatrices autrement : non pas comme des faiblesses, mais les traces d’un chemin.',
-    image: '/img/photos/confiance-corps.webp',
+    title: 'L’amour comme encrage',
+    guest: 'Le parcours de Fanny',
+    excerpt: 'Traverser le cancer, et faire du tatouage un ancrage pour avancer.',
+    image: '/img/photos/sourcil_2_2.webp',
   },
 ] as const;
 
@@ -197,7 +197,7 @@ export const FEATURED_EVENT = {
   title: 'Octobre Rose, tatouages réparateurs',
   place: 'Studio Enluzd · Angers',
   desc: "Tout au long de la saison, un accompagnement dédié aux femmes en parcours de reconstruction : aréole mammaire 3D, camouflage de cicatrices et temps d'écoute. Un espace bienveillant pour avancer à votre rythme.",
-  image: '/img/photos/img_8816.webp',
+  image: '/img/photos/octobre-rose.webp',
   cta: { label: 'Participer / en savoir plus', href: '/contact' },
 };
 
@@ -212,7 +212,7 @@ export const PAST_EVENTS = [
     date: '2024',
     title: 'Ouverture du studio Enluzd',
     desc: 'Le choix de me consacrer pleinement au tatouage et à la reconstruction corporelle.',
-    image: '/img/photos/ornemental_4.webp',
+    image: '/img/photos/ouverture-studio.webp',
   },
   {
     date: '2024',
