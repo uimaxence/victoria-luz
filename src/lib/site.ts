@@ -167,14 +167,14 @@ export const PODCAST_EPISODES = [
     title: 'L’amour comme guérison',
     guest: 'Interview',
     excerpt: 'Les liens, la tendresse et l’amour comme appuis sur le chemin de la reconstruction.',
-    image: '/img/photos/img_2873.webp',
+    image: '/img/photos/podcast-interview.webp',
   },
   {
     num: '06',
     title: 'L’amour comme encrage',
     guest: 'Le parcours de Fanny',
     excerpt: 'Traverser le cancer, et faire du tatouage un ancrage pour avancer.',
-    image: '/img/photos/sourcil_2_2.webp',
+    image: '/img/photos/podcast-fanny.webp',
   },
 ] as const;
 
