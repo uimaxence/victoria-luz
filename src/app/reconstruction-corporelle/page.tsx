@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import PageHeader from '@/components/sections/PageHeader';
 import ImageFrame from '@/components/ImageFrame';
 import Reveal from '@/components/Reveal';
@@ -101,6 +102,49 @@ export default function ReconstructionPage() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ---- Aréole mammaire 3D · résultats avant / après ---- */}
+      <section className="relative isolate overflow-hidden bg-nude has-grain">
+        <span className="grain-layer" aria-hidden />
+        <div className="container-page py-20 md:py-28">
+          <div className="max-w-[46ch]">
+            <Reveal as="p" className="t-hand -rotate-2 text-rose">
+              avant · après
+            </Reveal>
+            <Reveal as="h2" className="mt-3 max-w-[18ch] t-h2 text-chocolat" delay={0.08}>
+              Aréole mammaire 3D, quelques résultats
+            </Reveal>
+            <Reveal as="p" className="mt-5 max-w-[54ch] text-body text-text-muted" delay={0.14}>
+              Grâce à la dermopigmentation 3D, recréer visuellement l’aréole et le mamelon après
+              une mastectomie ou une chirurgie reconstructrice. Chaque création est personnalisée
+              pour un rendu naturel, en harmonie avec votre morphologie et votre peau.
+            </Reveal>
+          </div>
+
+          <Reveal
+            className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:max-w-4xl"
+            delay={0.1}
+          >
+            {[1, 2, 3, 4].map((n) => (
+              <figure key={n} className="overflow-hidden rounded-token bg-creme ring-1 ring-line">
+                <div className="relative aspect-[5/4]">
+                  <Image
+                    src={`/img/photos/reconstruction-areole-${n}.webp`}
+                    alt="Reconstruction d’aréole mammaire en 3D, résultat avant et après"
+                    fill
+                    sizes="(max-width: 640px) 100vw, 40vw"
+                    className="object-cover"
+                  />
+                </div>
+              </figure>
+            ))}
+          </Reveal>
+
+          <Reveal as="p" className="mt-6 text-small text-text-muted" delay={0.16}>
+            Photos publiées avec le consentement des personnes concernées.
+          </Reveal>
         </div>
       </section>
 
