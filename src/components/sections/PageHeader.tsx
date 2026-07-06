@@ -1,5 +1,6 @@
 import HeroImage from '@/components/HeroImage';
 import HeroVideo from '@/components/HeroVideo';
+import VideoLinkOverlay from '@/components/VideoLinkOverlay';
 import Reveal from '@/components/Reveal';
 import Floral from '@/components/Floral';
 
@@ -60,7 +61,7 @@ export default function PageHeader({
 
       {/* ---- Colonne texte (gauche, ≈55 %) ---- */}
       <div className="container-page relative flex flex-col justify-center pb-14 pt-28 lg:min-h-[calc(100svh-4.5rem)] lg:pt-0">
-        <div className={`lg:pl-4 ${wideMedia ? 'lg:max-w-[43%]' : 'lg:max-w-[52%]'}`}>
+        <div className={`lg:pl-4 ${wideMedia ? 'lg:max-w-[42%]' : 'lg:max-w-[52%]'}`}>
           <p
             className="reveal-load t-surtitre"
             style={{ ['--delay' as string]: '0.05s' }}
@@ -118,20 +119,7 @@ export default function PageHeader({
                 {script}
               </span>
             )}
-            {videoLink && (
-              <div className="pointer-events-none absolute inset-0 flex items-center justify-center p-5">
-                <a
-                  href={videoLink.href}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="pointer-events-auto inline-flex items-center gap-2 rounded-token px-4 py-2 text-small font-medium text-chocolat shadow-lg backdrop-blur transition-colors"
-                  style={{ backgroundColor: 'rgba(255,242,237,0.94)' }}
-                >
-                  <span aria-hidden>▶</span>
-                  {videoLink.label}
-                </a>
-              </div>
-            )}
+            {videoLink && <VideoLinkOverlay href={videoLink.href} label={videoLink.label} />}
           </div>
         </div>
       </div>
@@ -139,7 +127,7 @@ export default function PageHeader({
       {/* ---- Image desktop : plein écran à droite (45 %), à cheval en bas ---- */}
       <div
         className="hidden lg:block"
-        style={{ position: 'absolute', top: 0, right: 0, bottom: '-4rem', width: wideMedia ? '56%' : '45%', zIndex: 1 }}
+        style={{ position: 'absolute', top: 0, right: 0, bottom: '-4rem', width: wideMedia ? '50%' : '45%', zIndex: 1 }}
       >
         {video ? (
           <HeroVideo
@@ -169,20 +157,7 @@ export default function PageHeader({
           </span>
         )}
 
-        {videoLink && (
-          <div className="pointer-events-none absolute inset-0 z-[3] flex items-center justify-center p-6">
-            <a
-              href={videoLink.href}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="reveal-load pointer-events-auto inline-flex items-center gap-2 rounded-token px-5 py-2.5 text-small font-medium text-chocolat shadow-[0_10px_30px_-8px_rgba(59,23,18,0.6)] backdrop-blur transition-colors duration-[var(--dur-1)]"
-              style={{ ['--delay' as string]: '0.95s', backgroundColor: 'rgba(255,242,237,0.94)' }}
-            >
-              <span aria-hidden>▶</span>
-              {videoLink.label}
-            </a>
-          </div>
-        )}
+        {videoLink && <VideoLinkOverlay href={videoLink.href} label={videoLink.label} />}
 
         {floral && (
           <Floral

@@ -1,7 +1,7 @@
 'use client';
 
-import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
+import PodcastCard from './PodcastCard';
 
 /**
  * Défilement horizontal piloté par le scroll vertical (design.md §4.2 gallery-scroll).
@@ -121,8 +121,8 @@ export default function HorizontalPodcast({
   // Tailles des cartes : en hijack, hauteur fixée pour tenir dans le viewport
   // (la largeur découle du ratio) ; en natif, largeur fluide + hauteur auto.
   const cardSize = hijack
-    ? 'h-full aspect-[4/5]'
-    : 'w-[78vw] aspect-[4/5] sm:w-[58vw] md:w-[44vw] lg:w-[30rem]';
+    ? 'h-full aspect-[3/4]'
+    : 'w-[80vw] aspect-[3/4] sm:w-[60vw] md:w-[42vw] lg:w-[28rem]';
 
   return (
     <section
@@ -190,33 +190,11 @@ export default function HorizontalPodcast({
           <div
             ref={trackRef}
             className={`flex w-max items-stretch gap-6 md:gap-8 ${
-              hijack ? 'h-[clamp(18rem,46vh,34rem)] will-change-transform' : 'px-page-margin'
+              hijack ? 'h-[clamp(20rem,58vh,42rem)] will-change-transform' : 'px-page-margin'
             }`}
           >
             {episodes.map((ep) => (
-              <article key={ep.num} className={`group relative shrink-0 snap-start ${cardSize}`}>
-                <div className="relative h-full w-full overflow-hidden rounded-token bg-marron">
-                  <Image
-                    src={ep.image}
-                    alt=""
-                    fill
-                    sizes="(max-width: 1024px) 78vw, 24rem"
-                    className="object-cover opacity-90 transition-transform duration-[var(--dur-3)] ease-soft group-hover:scale-105"
-                  />
-                  <div
-                    aria-hidden
-                    className="absolute inset-0 bg-gradient-to-t from-chocolat via-chocolat/30 to-transparent"
-                  />
-                  <span className="absolute left-5 top-4 font-display text-h2 text-creme/80">
-                    {ep.num}
-                  </span>
-                  <div className="absolute inset-x-5 bottom-5">
-                    <p className="t-surtitre text-creme/70">{ep.guest}</p>
-                    <h3 className="mt-2 t-h3 font-display text-creme">{ep.title}</h3>
-                    <p className="mt-3 max-w-[34ch] text-small text-creme/80">{ep.excerpt}</p>
-                  </div>
-                </div>
-              </article>
+              <PodcastCard key={ep.num} ep={ep} youtube={youtube} cardSize={cardSize} />
             ))}
 
             {/* Panneau final : accès au podcast complet */}

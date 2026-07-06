@@ -41,16 +41,16 @@ export default function HomePage() {
         heading="Se sentir soi, pleinement"
         script={['rayonner']}
         image={{
-          src: '/img/photos/floral_2.webp',
-          alt: 'Silhouettes baignées de lumière, la beauté des corps, sans artifice',
+          src: '/img/photos/reconstruction-hero.webp',
+          alt: 'Trois femmes aux corps différents, fleurs à la main, baignées de lumière',
           ratio: 'landscape',
-          objectPosition: 'center 72%',
+          objectPosition: 'center 22%',
         }}
         secondary={{
-          src: '/img/photos/img_8816.webp',
-          alt: 'Tatouage floral délicat au poignet, trait fin',
+          src: '/img/photos/grossesse-postpartum.webp',
+          alt: 'Un corps et une fleur, célébration des marques que la vie laisse sur la peau',
           ratio: 'square',
-          objectPosition: 'center 90%',
+          objectPosition: 'center 40%',
         }}
         mirror
         tone="nude"

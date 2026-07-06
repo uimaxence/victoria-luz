@@ -97,8 +97,8 @@ export default function Hero() {
           {/* ---- Image mobile (en flux, sous le texte) ---- */}
           <div className="relative mt-10 lg:hidden">
             <HeroImage
-              src="/img/hero-botanical.jpg"
-              alt="Portrait sensible d’un corps paré de feuillage, délicatesse et lumière, en écho au soin réparateur"
+              src="/img/photos/moi.webp"
+              alt="Portrait de Victoria-Luz, tatoueuse artistique et reconstructrice à Angers"
               className="aspect-[3/4] w-full"
             />
             <span className="reveal-load t-hand pointer-events-none absolute bottom-5 left-5 -rotate-6 text-creme">
@@ -114,10 +114,10 @@ export default function Hero() {
         style={{ position: 'absolute', top: 0, right: 0, bottom: '-4rem', width: '45%', zIndex: 1 }}
       >
         <HeroImage
-          src="/img/hero-botanical.jpg"
-          alt="Portrait sensible d’un corps paré de feuillage, délicatesse et lumière, en écho au soin réparateur"
+          src="/img/photos/moi.webp"
+          alt="Portrait de Victoria-Luz, tatoueuse artistique et reconstructrice à Angers"
           sizes="45vw"
-          objectPosition="center 30%"
+          objectPosition="center 25%"
           className="h-full w-full rounded-none"
         />
 

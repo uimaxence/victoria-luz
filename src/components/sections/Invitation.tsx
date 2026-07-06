@@ -48,11 +48,11 @@ export default function Invitation() {
             delay={0.16}
           >
             <ImageFrame
-              src="/img/photos/floral_4.webp"
-              alt="Tatouage floral délicat, douceur et féminité du trait"
+              src="/img/photos/octobre-rose.webp"
+              alt="Victoria-Luz lors d’un événement, micro en main, à la rencontre du public"
               ratio="portrait"
               sizes="(max-width: 768px) 100vw, 44vw"
-              objectPosition="center 25%"
+              objectPosition="center 30%"
               className="lg:bleed-right"
             />
             <Floral

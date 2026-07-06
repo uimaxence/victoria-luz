@@ -26,12 +26,12 @@ export default function Approach() {
               L’approche · Victoria-Luz
             </span>
             <ImageFrame
-              src="/img/photos/ornemental_3.webp"
-              alt="Détail d’une peau lumineuse et d’un geste précis, l’attention portée à la matière et au corps"
+              src="/img/photos/confiance-corps.webp"
+              alt="Une femme tient une fleur contre son corps, douceur et réconciliation avec soi"
               ratio="tall"
               framed
               sizes="(max-width: 768px) 100vw, 40vw"
-              objectPosition="center 40%"
+              objectPosition="center 30%"
               className="h-full"
               wrapperClassName="h-full lg:pl-8"
             />

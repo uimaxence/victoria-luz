@@ -75,7 +75,7 @@ export const TATTOO_STYLES = [
     num: '01',
     title: 'Ornemental',
     desc: "Inspiré de la joaillerie et des motifs décoratifs, le tatouage ornemental habille le corps comme un véritable bijou. J'aime y intégrer, lorsque le projet s'y prête, des inspirations issues des cultures hindoues ou thaïlandaises, à travers des symboles qui apportent une dimension spirituelle et intemporelle. Chaque composition épouse harmonieusement les courbes du corps.",
-    image: '/img/photos/ornemental_1.webp',
+    image: '/img/photos/ornemental_dos.webp',
   },
   {
     num: '02',
@@ -139,28 +139,28 @@ export const PODCAST_EPISODES = [
     title: 'Quand accoucher devient une violence',
     guest: 'Le parcours de Cécile',
     excerpt: 'Mettre des mots sur les violences obstétricales, et se reconstruire après une maternité éprouvante.',
-    image: '/img/photos/grossesse-postpartum.webp',
+    image: '/img/photos/podcast-cecile.webp',
   },
   {
     num: '02',
     title: 'Savoir dire non pour reprendre son pouvoir',
     guest: 'Le parcours de Caroline',
     excerpt: 'Poser ses limites, sortir d’une emprise et se réapproprier sa propre voix.',
-    image: '/img/photos/confiance-corps.webp',
+    image: '/img/photos/podcast-caroline.webp',
   },
   {
     num: '03',
     title: 'Invisible mais réel : vivre avec la maladie de Crohn',
     guest: 'Avec Audrey',
     excerpt: 'Les cicatrices invisibles, le quotidien, et la force tranquille de celles qui avancent.',
-    image: '/img/photos/1a392b84-bfaa-470b-9a36-4311025a7be6.webp',
+    image: '/img/photos/podcast-audrey.webp',
   },
   {
     num: '04',
     title: 'Le corps comme protection',
     guest: 'Le parcours d’Andréa',
     excerpt: 'Quand le corps se transforme pour se protéger, et le chemin pour se retrouver.',
-    image: '/img/photos/img_0048.webp',
+    image: '/img/photos/podcast-andrea.webp',
   },
   {
     num: '05',
@@ -200,6 +200,55 @@ export const FEATURED_EVENT = {
   image: '/img/photos/octobre-rose.webp',
   cta: { label: 'Participer / en savoir plus', href: '/contact' },
 };
+
+/** Événements & rencontres où Victoria-Luz s'est déplacée.
+ *  Format « ligne de tableau » pleine largeur (cf. EventsList) : chaque entrée
+ *  affiche deux visuels qui s'animent en haut à droite de la ligne.
+ *  Textes provisoires, à personnaliser avec Victoria. */
+export const EVENTS = [
+  {
+    num: '01',
+    date: '2025',
+    title: 'Salon de la danse',
+    place: 'Angers',
+    desc: "Une journée de rencontres et de flash éphémères au cœur du salon, entre passionnées de danse et amoureuses du trait fin.",
+    photos: [
+      {
+        src: '/img/photos/event-salon-danse-2.webp',
+        alt: 'Victoria-Luz en échange avec une visiteuse sur son stand du salon de la danse',
+        ratio: 'tall' as const,
+        objectPosition: 'center 30%',
+      },
+      {
+        src: '/img/photos/event-salon-danse-1.webp',
+        alt: 'Victoria-Luz concentrée sur un tatouage lors du salon de la danse',
+        ratio: 'landscape' as const,
+        objectPosition: 'center 40%',
+      },
+    ],
+  },
+  {
+    num: '02',
+    date: '2025',
+    title: 'On Air',
+    place: 'Angers',
+    desc: "Un pop-up tatouage dans un lieu vibrant : de la musique, de la bonne humeur et des souvenirs gravés sur la peau le temps d'une soirée.",
+    photos: [
+      {
+        src: '/img/photos/event-on-air-1.webp',
+        alt: 'Victoria-Luz posant devant la fresque On Air',
+        ratio: 'tall' as const,
+        objectPosition: 'center 25%',
+      },
+      {
+        src: '/img/photos/event-on-air-2.webp',
+        alt: 'Victoria-Luz tatouant un invité lors de la soirée On Air',
+        ratio: 'tall' as const,
+        objectPosition: 'center 30%',
+      },
+    ],
+  },
+] as const;
 
 export const PAST_EVENTS = [
   {

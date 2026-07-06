@@ -133,8 +133,8 @@ export default function QuiSuisJePage() {
               delay={0.16}
             >
               <ImageFrame
-                src="/img/photos/img_8511.webp"
-                alt="Tatouage floral fin sur l’avant-bras, rose et croissant de lune"
+                src="/img/photos/ouverture-studio.webp"
+                alt="Victoria-Luz, un moment de complicité et d’écoute"
                 ratio="portrait"
                 sizes="(max-width: 768px) 100vw, 30vw"
                 objectPosition="center 30%"

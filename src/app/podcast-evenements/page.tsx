@@ -3,11 +3,19 @@ import Image from 'next/image';
 import Link from 'next/link';
 import PageHeader from '@/components/sections/PageHeader';
 import HorizontalPodcast from '@/components/HorizontalPodcast';
+import EventsList from '@/components/EventsList';
 import ImageFrame from '@/components/ImageFrame';
 import Reveal from '@/components/Reveal';
 import Floral from '@/components/Floral';
 import Button from '@/components/Button';
-import { PODCAST_EPISODES, EVENT_BANNER, FEATURED_EVENT, PAST_EVENTS, SITE } from '@/lib/site';
+import {
+  PODCAST_EPISODES,
+  EVENT_BANNER,
+  FEATURED_EVENT,
+  EVENTS,
+  PAST_EVENTS,
+  SITE,
+} from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Podcast & événements',
@@ -133,6 +141,35 @@ export default function PodcastEvenementsPage() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* ===================================================================
+          ÉVÉNEMENTS · liste pleine largeur, visuels animés en haut à droite
+          =================================================================== */}
+      <section className="relative isolate overflow-hidden bg-creme has-grain">
+        <span className="grain-layer" aria-hidden />
+        <div className="container-page pt-20 md:pt-28">
+          <div className="grid-12 gap-y-6">
+            <div className="col-span-12 md:col-span-5">
+              <Reveal as="p" className="t-surtitre">
+                Événements
+              </Reveal>
+              <Reveal as="h2" className="mt-5 max-w-[14ch] t-h2 text-chocolat" delay={0.08}>
+                Là où l’on s’est rencontrés
+              </Reveal>
+            </div>
+            <Reveal
+              as="p"
+              className="col-span-12 max-w-[52ch] self-end text-body text-text-muted md:col-span-6 md:col-start-7"
+              delay={0.12}
+            >
+              Salons, soirées, pop-ups : je me déplace régulièrement pour partager le tatouage
+              autrement, au plus près de celles et ceux qui le portent. Un aperçu des rendez-vous
+              qui ont marqué la saison.
+            </Reveal>
+          </div>
+        </div>
+        <EventsList events={EVENTS} />
       </section>
 
       {/* ===================================================================
