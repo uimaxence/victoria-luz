@@ -41,6 +41,10 @@ type EventItem = {
   place: string;
   desc: string;
   photos: readonly EventPhoto[];
+  /** Logo affiché à côté du nom (ex. logo d'un lieu partenaire). */
+  logo?: string;
+  /** Lien optionnel (ex. carte au format PDF), ouvert dans un nouvel onglet. */
+  link?: { label: string; href: string };
 };
 
 /** Lavage pastel appliqué à la ligne active (doux, transparent). Cycle par ligne. */
@@ -50,9 +54,10 @@ const TINTS = [
   'color-mix(in srgb, var(--rose) 30%, transparent)',
 ];
 
-/** Disposition des deux vignettes dans la boîte ancrée en haut à droite (px).
+/** Disposition des vignettes dans la boîte ancrée en haut à droite (px).
  *  `right` = distance au bord droit du contenu, `top` = descente, `rot` = angle,
- *  `w` = largeur de la vignette. Deux presets alternés → rendu un peu aléatoire. */
+ *  `w` = largeur de la vignette. Un preset par ligne (cyclé), avec 2 ou 3
+ *  vignettes selon l'événement → rendu un peu aléatoire d'une ligne à l'autre. */
 const ARRANGEMENTS = [
   [
     { w: 168, top: 58, right: 0, rot: -5 },
@@ -61,6 +66,11 @@ const ARRANGEMENTS = [
   [
     { w: 168, top: 0, right: 22, rot: 6 },
     { w: 150, top: 84, right: 150, rot: -7 },
+  ],
+  [
+    { w: 152, top: 70, right: 0, rot: -6 },
+    { w: 158, top: 0, right: 118, rot: 5 },
+    { w: 138, top: 138, right: 205, rot: -9 },
   ],
 ];
 
@@ -164,7 +174,7 @@ export default function EventsList({ events }: { events: readonly EventItem[] })
               className="pointer-events-none absolute right-page-margin top-0 z-10 -translate-y-[38%]"
             >
               <div className="relative h-[200px] w-[340px] origin-top-right scale-[0.56] sm:scale-[0.78] lg:scale-100">
-                {ev.photos.slice(0, 2).map((photo, p) => (
+                {ev.photos.slice(0, arrangement.length).map((photo, p) => (
                   <PhotoCard
                     key={photo.src}
                     photo={photo}
@@ -180,11 +190,34 @@ export default function EventsList({ events }: { events: readonly EventItem[] })
             <div className="container-page">
               <Reveal className="grid grid-cols-1 items-baseline gap-x-gutter gap-y-3 py-14 md:grid-cols-12 md:py-20">
                 <span className="t-surtitre md:col-span-1 md:pt-3">({ev.num})</span>
-                <h3 className="t-h2 font-display text-chocolat md:col-span-5">{ev.title}</h3>
+                <div className="flex items-center gap-3 md:col-span-5">
+                  {/* Logo d'un lieu partenaire (pas réalisé par Victoria) : simple
+                      repère à côté du nom, servi tel quel. */}
+                  {ev.logo && (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={ev.logo} alt="" aria-hidden className="h-9 w-auto shrink-0 md:h-11" />
+                  )}
+                  <h3 className="t-h2 font-display text-chocolat">{ev.title}</h3>
+                </div>
                 <p className="t-surtitre text-accent md:col-span-2 md:pt-3">
                   {ev.date} · {ev.place}
                 </p>
-                <p className="max-w-[44ch] text-body text-text-muted md:col-span-4">{ev.desc}</p>
+                <div className="md:col-span-4">
+                  <p className="max-w-[44ch] text-body text-text-muted">{ev.desc}</p>
+                  {ev.link && (
+                    <a
+                      href={ev.link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group/link mt-4 inline-flex items-center gap-1.5 text-small font-medium text-accent underline-offset-4 hover:underline"
+                    >
+                      {ev.link.label}
+                      <span aria-hidden className="transition-transform duration-[var(--dur-1)] ease-soft group-hover/link:translate-x-1">
+                        →
+                      </span>
+                    </a>
+                  )}
+                </div>
               </Reveal>
             </div>
           </div>

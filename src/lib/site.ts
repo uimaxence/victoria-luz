@@ -248,6 +248,35 @@ export const EVENTS = [
       },
     ],
   },
+  {
+    num: '03',
+    date: '2025',
+    title: 'La Cour',
+    place: 'Angers',
+    logo: '/img/la-cour-logo.webp',
+    desc: "Direction artistique et illustration de la carte des cocktails du bar-restaurant La Cour : une collection de créations colorées, pensée comme une œuvre à part entière.",
+    photos: [
+      {
+        src: '/img/photos/event-la-cour-1.webp',
+        alt: 'Illustration originale créée pour la carte des cocktails de La Cour',
+        ratio: 'portrait' as const,
+        objectPosition: 'center',
+      },
+      {
+        src: '/img/photos/event-la-cour-2.webp',
+        alt: 'La carte des cocktails imprimée, sur le comptoir du restaurant La Cour',
+        ratio: 'tall' as const,
+        objectPosition: 'center 45%',
+      },
+      {
+        src: '/img/photos/event-la-cour-3.webp',
+        alt: "Nuancier de couleurs élaboré pour l'identité de la carte",
+        ratio: 'portrait' as const,
+        objectPosition: 'center',
+      },
+    ],
+    link: { label: 'Voir la carte des cocktails (PDF)', href: '/docs/la-cour-cocktails.pdf' },
+  },
 ] as const;
 
 export const PAST_EVENTS = [
