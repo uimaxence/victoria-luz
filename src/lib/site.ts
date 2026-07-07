@@ -284,7 +284,7 @@ export const PAST_EVENTS = [
     date: '2025',
     title: 'Lancement du podcast « Sous nos cicatrices »',
     desc: 'Premiers épisodes et premières voix réunies autour de la reconstruction de soi.',
-    image: '/img/photos/ornemental_2.webp',
+    image: '/img/photos/podcast-interview.webp',
   },
   {
     date: '2024',
