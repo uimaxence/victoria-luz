@@ -3,6 +3,7 @@ import Image from 'next/image';
 import PageHeader from '@/components/sections/PageHeader';
 import ImageFrame from '@/components/ImageFrame';
 import Reveal from '@/components/Reveal';
+import SensitiveReveal from '@/components/SensitiveReveal';
 import Floral from '@/components/Floral';
 import Stamp from '@/components/Stamp';
 import Button from '@/components/Button';
@@ -123,23 +124,24 @@ export default function ReconstructionPage() {
             </Reveal>
           </div>
 
-          <Reveal
-            className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:max-w-4xl"
-            delay={0.1}
-          >
-            {[1, 2, 3, 4].map((n) => (
-              <figure key={n} className="overflow-hidden rounded-token bg-creme ring-1 ring-line">
-                <div className="relative aspect-[5/4]">
-                  <Image
-                    src={`/img/photos/reconstruction-areole-${n}.webp`}
-                    alt="Reconstruction d’aréole mammaire en 3D, résultat avant et après"
-                    fill
-                    sizes="(max-width: 640px) 100vw, 40vw"
-                    className="object-cover"
-                  />
-                </div>
-              </figure>
-            ))}
+          <Reveal className="mt-12 lg:max-w-4xl" delay={0.1}>
+            <SensitiveReveal note="Photos de reconstruction d’aréole mammaire, à caractère médical. Cliquez pour les afficher.">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
+                {[1, 2, 3, 4].map((n) => (
+                  <figure key={n} className="overflow-hidden rounded-token bg-creme ring-1 ring-line">
+                    <div className="relative aspect-[5/4]">
+                      <Image
+                        src={`/img/photos/reconstruction-areole-${n}.webp`}
+                        alt="Reconstruction d’aréole mammaire en 3D, résultat avant et après"
+                        fill
+                        sizes="(max-width: 640px) 100vw, 40vw"
+                        className="object-cover"
+                      />
+                    </div>
+                  </figure>
+                ))}
+              </div>
+            </SensitiveReveal>
           </Reveal>
 
           <Reveal as="p" className="mt-6 text-small text-text-muted" delay={0.16}>
