@@ -45,18 +45,27 @@ export default function Nav({ invert = false }: { invert?: boolean }) {
     };
   }, [open]);
 
-  const light = invert || overDark;
+  // Menu ouvert : la barre repasse en crème opaque avec typo foncée, pour rester
+  // cohérente avec l'overlay crème (et ne pas devenir crème-sur-crème au-dessus
+  // d'une section sombre).
+  const light = !open && (invert || overDark);
   const tone = light ? 'text-creme' : 'text-chocolat';
-  const bar = scrolled
-    ? light
-      ? 'bg-marron/90 backdrop-blur-sm border-b border-line-invert'
-      : 'bg-creme/85 backdrop-blur-sm border-b border-line'
-    : 'bg-transparent border-b border-transparent';
+  const bar = open
+    ? 'bg-creme border-b border-line'
+    : scrolled
+      ? light
+        ? 'bg-marron/90 backdrop-blur-sm border-b border-line-invert'
+        : 'bg-creme/85 backdrop-blur-sm border-b border-line'
+      : 'bg-transparent border-b border-transparent';
 
   return (
     <>
     <header
-      className={`sticky top-0 z-50 w-full transition-colors duration-[var(--dur-1)] ${bar}`}
+      // `sticky` en temps normal ; `fixed` quand le menu est ouvert : le verrou de
+      // scroll (`body { overflow: hidden }`) casse le sticky d'un élément déjà
+      // scrollé (la barre partirait tout en haut du document, X inclus). En fixed
+      // elle reste collée au viewport, close button et fond opaque compris.
+      className={`${open ? 'fixed' : 'sticky'} top-0 z-50 w-full transition-colors duration-[var(--dur-1)] ${bar}`}
     >
       <nav className="container-page flex items-center justify-between py-4 md:py-5">
         {/* Logo */}
@@ -122,9 +131,13 @@ export default function Nav({ invert = false }: { invert?: boolean }) {
 
       {/* Overlay menu mobile : rendu hors du <header> car ce dernier passe en
           backdrop-filter une fois scrollé, ce qui en ferait le bloc conteneur
-          de cet élément fixed et écraserait l'overlay à une hauteur nulle. */}
+          de cet élément fixed et écraserait l'overlay à une hauteur nulle.
+          `has-grain` reste sur un enfant : posée sur l'élément fixed, sa règle
+          `position: relative` écraserait le `position: fixed` et le menu, sorti
+          du flux fixe, « disparaîtrait » en haut de page dès qu'on a scrollé. */}
       {open && (
-        <div className="fixed inset-0 top-[64px] z-40 bg-creme lg:hidden has-grain">
+        <div className="fixed inset-0 top-[64px] z-40 bg-creme lg:hidden">
+          <div className="has-grain relative h-full overflow-y-auto">
           <span className="grain-layer" aria-hidden />
           <ul className="container-page flex flex-col gap-2 py-8">
             {NAV_LINKS.map((l, i) => (
@@ -149,6 +162,7 @@ export default function Nav({ invert = false }: { invert?: boolean }) {
               </Link>
             </li>
           </ul>
+          </div>
         </div>
       )}
     </>
