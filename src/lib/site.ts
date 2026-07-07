@@ -31,6 +31,7 @@ export const NAV_LINKS: NavLink[] = [
   { label: 'Qui suis-je', href: '/qui-suis-je' },
   { label: 'Artiste tatoueuse', href: '/artiste-tatoueuse' },
   { label: 'Reconstruction', href: '/reconstruction-corporelle' },
+  { label: 'Maquillage semi-permanent', href: '/maquillage-semi-permanent' },
   { label: 'Podcast & événements', href: '/podcast-evenements' },
 ];
 
@@ -54,12 +55,19 @@ export const POLES = [
   {
     num: '03',
     title: 'Reconstruction corporelle',
-    desc: 'Aréole mammaire en 3D, camouflage de cicatrices, vergetures, tricopigmentation et maquillage semi-permanent. Se réapproprier son corps, en douceur.',
+    desc: 'Aréole mammaire en 3D, camouflage de cicatrices, vergetures et tricopigmentation. Se réapproprier son corps, en douceur.',
     href: '/reconstruction-corporelle',
-    image: '/img/photos/sourcil_1_2.webp',
+    image: '/img/photos/reconstruction-hero.webp',
   },
   {
     num: '04',
+    title: 'Maquillage semi-permanent',
+    desc: 'Sourcils, lèvres et taches de rousseur : une dermopigmentation qui révèle vos traits avec naturel, sans jamais transformer votre visage.',
+    href: '/maquillage-semi-permanent',
+    image: '/img/photos/sourcil_1_2.webp',
+  },
+  {
+    num: '05',
     title: 'Podcast & événements',
     desc: '« Sous nos cicatrices » : un espace de parole pour les femmes. Des voix, des parcours, des rencontres et l’actualité du studio.',
     href: '/podcast-evenements',
@@ -114,19 +122,30 @@ export const RECONSTRUCTION_SERVICES = [
 ] as const;
 
 /** Maquillage semi-permanent (§ brief). */
+export const MAQUILLAGE_INTRO = [
+  'Le maquillage permanent est une technique de dermopigmentation qui permet de sublimer naturellement certains traits du visage tout en respectant votre morphologie et votre identité. L’objectif n’est jamais de transformer, mais de révéler votre beauté avec des résultats subtils, élégants et adaptés à votre peau.',
+  'Formée auprès de PLN Studio ainsi que de Biotic Phocea, j’ai développé une approche fondée sur la précision, la colorimétrie et le naturel afin de créer des résultats harmonieux qui évoluent avec le temps.',
+] as const;
+
 export const MAQUILLAGE_SERVICES = [
   {
     title: 'Sourcils',
-    desc: 'Les sourcils structurent le regard. J’utilise les techniques du poil à poil et du microshading, seules ou combinées, pour recréer un effet aérien et réaliste. Chaque implantation est dessinée sur mesure pour imiter la pousse naturelle du poil.',
+    desc: 'Les sourcils structurent le regard et participent pleinement à l’équilibre du visage. J’utilise principalement les techniques du poil à poil et du microshading, seules ou combinées selon vos besoins, afin de recréer un effet aérien et réaliste. Chaque implantation est dessinée sur mesure pour imiter la pousse naturelle du poil et offrir un résultat délicat, loin des sourcils trop marqués ou figés.',
   },
   {
     title: 'Lèvres',
-    desc: 'La dermopigmentation des lèvres ravive leur couleur naturelle, redessine légèrement leur contour et apporte un effet lumineux tout en discrétion. Un résultat subtil et élégant, comme des lèvres naturellement fraîches au quotidien.',
+    desc: 'La dermopigmentation des lèvres permet de raviver leur couleur naturelle, de redessiner légèrement leur contour et d’apporter un effet lumineux tout en discrétion. Le résultat reste subtil et élégant, comme si vos lèvres étaient naturellement fraîches et éclatantes au quotidien.',
   },
   {
     title: 'Taches de rousseur',
-    desc: 'Réalisées avec finesse et en harmonie avec votre carnation, elles créent un effet ensoleillé naturel, rehaussent délicatement les pommettes et donnent au teint une apparence fraîche et spontanée.',
+    desc: 'Les taches de rousseur peuvent apporter beaucoup de caractère et illuminer un visage. Réalisées avec finesse et en parfaite harmonie avec votre carnation, elles créent un effet ensoleillé naturel, rehaussent délicatement les pommettes et donnent au teint une apparence fraîche et spontanée, comme après quelques jours passés au soleil.',
   },
+] as const;
+
+/** Phrase de clôture, avant la prise de rendez-vous. */
+export const MAQUILLAGE_OUTRO = [
+  'Chaque projet est précédé d’un temps d’échange afin de comprendre vos attentes et de concevoir une pigmentation parfaitement adaptée à votre visage.',
+  'Mon objectif est simple : que l’on remarque votre éclat… sans jamais deviner qu’il s’agit d’un maquillage permanent.',
 ] as const;
 
 /* =========================================================================

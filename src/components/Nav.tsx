@@ -77,13 +77,17 @@ export default function Nav({ invert = false }: { invert?: boolean }) {
           {SITE.logo}
         </Link>
 
-        {/* Liens desktop */}
-        <ul className={`hidden items-center gap-8 lg:flex ${tone}`}>
+        {/* Liens desktop. La barre horizontale ne s'affiche qu'à partir de `xl`
+            (≥1280px) : cinq intitulés + logo + CTA ne tiennent pas proprement
+            en dessous, on bascule alors sur le menu plein écran. Espacement et
+            interlettrage se resserrent aux largeurs intermédiaires pour éviter
+            tout retour à la ligne des libellés. */}
+        <ul className={`hidden items-center gap-5 xl:flex 2xl:gap-8 ${tone}`}>
           {NAV_LINKS.map((l) => (
             <li key={l.href}>
               <Link
                 href={l.href}
-                className="group relative text-small uppercase tracking-[0.14em]"
+                className="group relative whitespace-nowrap text-small uppercase tracking-[0.08em] 2xl:tracking-[0.14em]"
               >
                 {l.label}
                 <span
@@ -98,7 +102,7 @@ export default function Nav({ invert = false }: { invert?: boolean }) {
           <li>
             <Link
               href="/contact"
-              className="rounded-token bg-accent px-4 py-2 text-small uppercase tracking-[0.14em] text-chocolat transition-colors duration-[var(--dur-1)] hover:bg-chocolat hover:text-creme"
+              className="whitespace-nowrap rounded-token bg-accent px-4 py-2 text-small uppercase tracking-[0.08em] text-chocolat transition-colors duration-[var(--dur-1)] hover:bg-chocolat hover:text-creme 2xl:tracking-[0.14em]"
             >
               Rendez-vous
             </Link>
@@ -111,7 +115,7 @@ export default function Nav({ invert = false }: { invert?: boolean }) {
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}
-          className={`flex h-11 w-11 items-center justify-center lg:hidden ${tone}`}
+          className={`flex h-11 w-11 items-center justify-center xl:hidden ${tone}`}
         >
           <span className="relative block h-3 w-6">
             <span
@@ -136,7 +140,7 @@ export default function Nav({ invert = false }: { invert?: boolean }) {
           `position: relative` écraserait le `position: fixed` et le menu, sorti
           du flux fixe, « disparaîtrait » en haut de page dès qu'on a scrollé. */}
       {open && (
-        <div className="fixed inset-0 top-[64px] z-40 bg-creme lg:hidden">
+        <div className="fixed inset-0 top-[64px] z-40 bg-creme xl:hidden">
           <div className="has-grain relative h-full overflow-y-auto">
           <span className="grain-layer" aria-hidden />
           <ul className="container-page flex flex-col gap-2 py-8">

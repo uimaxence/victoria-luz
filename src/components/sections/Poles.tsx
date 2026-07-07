@@ -18,7 +18,7 @@ export default function Poles() {
               Explorer
             </Reveal>
             <Reveal as="h2" className="mt-5 max-w-[12ch] t-h2 text-chocolat" delay={0.08}>
-              Quatre pôles, une même lumière
+              Cinq pôles, une même lumière
             </Reveal>
           </div>
 

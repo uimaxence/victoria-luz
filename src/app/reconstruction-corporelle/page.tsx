@@ -1,24 +1,23 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import PageHeader from '@/components/sections/PageHeader';
-import ImageFrame from '@/components/ImageFrame';
 import Reveal from '@/components/Reveal';
 import SensitiveReveal from '@/components/SensitiveReveal';
 import Floral from '@/components/Floral';
 import Stamp from '@/components/Stamp';
 import Button from '@/components/Button';
-import { RECONSTRUCTION_SERVICES, MAQUILLAGE_SERVICES, SITE } from '@/lib/site';
+import { RECONSTRUCTION_SERVICES, SITE } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Reconstruction corporelle',
   description:
-    'Tatouage réparateur et dermopigmentation à Angers : aréole mammaire 3D, camouflage de cicatrices, atténuation des vergetures, tricopigmentation et maquillage semi-permanent. Un accompagnement doux et sécurisé.',
+    'Tatouage réparateur et dermopigmentation à Angers : aréole mammaire 3D, camouflage de cicatrices, atténuation des vergetures et tricopigmentation. Un accompagnement doux et sécurisé.',
 };
 
 /**
  * Page « Reconstruction corporelle ». Bloc immersif Marron (broken-overlap) pour
- * les prestations réparatrices, callout « informations importantes », puis
- * section Maquillage semi-permanent et CTA rendez-vous (Planity).
+ * les prestations réparatrices, résultats d'aréole mammaire, callout
+ * « informations importantes » et CTA rendez-vous (Planity).
  */
 export default function ReconstructionPage() {
   return (
@@ -192,118 +191,6 @@ export default function ReconstructionPage() {
               </ul>
             </div>
           </Reveal>
-        </div>
-      </section>
-
-      {/* ---- Maquillage semi-permanent ---- */}
-      <section className="relative isolate overflow-hidden bg-nude has-grain">
-        <span className="grain-layer" aria-hidden />
-        <Floral
-          name="Feuilles_marron"
-          className="pointer-events-none absolute -right-8 top-12 hidden md:block"
-          opacity={0.22}
-          width={160}
-          rotate={-8}
-        />
-        <div className="container-page py-20 md:py-28">
-          <div className="grid-12 gap-y-10">
-            <div className="col-span-12 md:col-span-4 lg:col-span-3">
-              <Reveal as="p" className="t-surtitre">
-                Maquillage semi-permanent
-              </Reveal>
-              <Reveal as="h2" className="mt-5 max-w-[14ch] t-h2 text-chocolat" delay={0.08}>
-                Révéler, sans transformer
-              </Reveal>
-              <Reveal
-                as="p"
-                className="mt-6 max-w-[42ch] text-body text-text-muted"
-                delay={0.14}
-              >
-                Une technique de dermopigmentation qui sublime naturellement certains traits du
-                visage, dans le respect de votre morphologie et de votre identité. Formée auprès
-                de PLN Studio et Biotic Phocea.
-              </Reveal>
-            </div>
-
-            <Reveal className="col-span-12 md:col-span-8 md:col-start-5" delay={0.12}>
-              <ul className="border-t border-line">
-                {MAQUILLAGE_SERVICES.map((s) => (
-                  <li
-                    key={s.title}
-                    className="grid grid-cols-12 items-baseline gap-3 border-b border-line py-6"
-                  >
-                    <span className="col-span-12 t-h3 font-display text-chocolat sm:col-span-4">
-                      {s.title}
-                    </span>
-                    <span className="col-span-12 text-body text-text-muted sm:col-span-8">
-                      {s.desc}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-
-            {/* Évolution sourcils, exemples réels (avant / séances) */}
-            <Reveal className="col-span-12 mt-6" delay={0.16}>
-              <p className="t-hand -rotate-2 text-rose">sourcils · l’évolution</p>
-              <h3 className="mt-3 max-w-[22ch] t-h3 text-chocolat">
-                Quelques parcours, séance après séance
-              </h3>
-
-              <div className="mt-8 space-y-10">
-                {/* Premier parcours, avant / après */}
-                <div className="grid grid-cols-2 gap-3 sm:max-w-md">
-                  {[
-                    { src: '/img/photos/sourcil_1_1.webp', label: 'Avant' },
-                    { src: '/img/photos/sourcil_1_2.webp', label: 'Après' },
-                  ].map((s) => (
-                    <ImageFrame
-                      key={s.src}
-                      src={s.src}
-                      alt={`Reconstruction des sourcils, ${s.label.toLowerCase()}`}
-                      ratio="square"
-                      caption={s.label}
-                      sizes="(max-width: 768px) 45vw, 22vw"
-                    />
-                  ))}
-                </div>
-
-                {/* Second parcours, évolution sur plusieurs séances */}
-                <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-                  {[1, 2, 3, 4].map((n) => (
-                    <ImageFrame
-                      key={n}
-                      src={`/img/photos/sourcil_2_${n}.webp`}
-                      alt={`Reconstruction des sourcils, séance ${n}`}
-                      ratio="square"
-                      caption={`Séance ${n}`}
-                      sizes="(max-width: 768px) 45vw, 20vw"
-                    />
-                  ))}
-                </div>
-              </div>
-            </Reveal>
-
-            {/* Lèvres, exemples réels de dermopigmentation */}
-            <Reveal className="col-span-12 mt-10" delay={0.18}>
-              <p className="t-hand -rotate-2 text-rose">lèvres · le résultat</p>
-              <h3 className="mt-3 max-w-[22ch] t-h3 text-chocolat">
-                Une couleur ravivée, un contour redessiné
-              </h3>
-
-              <div className="mt-8 grid grid-cols-3 gap-2 sm:max-w-2xl sm:gap-4">
-                {[1, 2, 3].map((n) => (
-                  <ImageFrame
-                    key={n}
-                    src={`/img/photos/levre_${n}.webp`}
-                    alt={`Dermopigmentation des lèvres, exemple ${n}`}
-                    ratio="portrait"
-                    sizes="(max-width: 768px) 30vw, 22vw"
-                  />
-                ))}
-              </div>
-            </Reveal>
-          </div>
         </div>
       </section>
 
