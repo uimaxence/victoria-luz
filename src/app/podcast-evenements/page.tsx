@@ -231,10 +231,10 @@ export default function PodcastEvenementsPage() {
               </Reveal>
             </div>
 
-            {/* Deux visuels, légèrement décalés */}
+            {/* Trois visuels, légèrement décalés */}
             <div className="col-span-12 md:col-span-6 md:col-start-7">
               <div className="grid grid-cols-2 gap-4 sm:gap-6">
-                <Reveal className="mt-8 sm:mt-12">
+                <Reveal className="mt-10 sm:mt-16">
                   <ImageFrame
                     src="/img/photos/mariage-1.webp"
                     alt="Tatouage souvenir réalisé lors d’un mariage"
@@ -242,14 +242,24 @@ export default function PodcastEvenementsPage() {
                     sizes="(max-width: 768px) 45vw, 26vw"
                   />
                 </Reveal>
-                <Reveal delay={0.12}>
-                  <ImageFrame
-                    src="/img/photos/mariage-2.webp"
-                    alt="Instant d’un mariage accompagné par Victoria-Luz"
-                    ratio="portrait"
-                    sizes="(max-width: 768px) 45vw, 26vw"
-                  />
-                </Reveal>
+                <div className="space-y-4 sm:space-y-6">
+                  <Reveal delay={0.12}>
+                    <ImageFrame
+                      src="/img/photos/mariage-2.webp"
+                      alt="Instant d’un mariage accompagné par Victoria-Luz"
+                      ratio="portrait"
+                      sizes="(max-width: 768px) 45vw, 26vw"
+                    />
+                  </Reveal>
+                  <Reveal delay={0.2}>
+                    <ImageFrame
+                      src="/img/photos/mariage-3.webp"
+                      alt="Victoria-Luz tatouant un invité pendant un mariage"
+                      ratio="portrait"
+                      sizes="(max-width: 768px) 45vw, 26vw"
+                    />
+                  </Reveal>
+                </div>
               </div>
             </div>
           </div>
