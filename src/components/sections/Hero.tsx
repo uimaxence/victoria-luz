@@ -102,7 +102,7 @@ export default function Hero() {
               className="aspect-[3/4] w-full"
             />
             <span className="reveal-load t-hand pointer-events-none absolute bottom-5 left-5 -rotate-6 text-creme">
-              Victoria
+              Victoria-Luz
             </span>
           </div>
         </div>
@@ -126,7 +126,7 @@ export default function Hero() {
           className="reveal-load t-hand pointer-events-none absolute bottom-8 left-7 -rotate-6 text-creme"
           style={{ ['--delay' as string]: '0.85s' }}
         >
-          Victoria
+          Victoria-Luz
         </span>
 
         {/* Pivoine au trait, débordant le bas de l'image */}
