@@ -114,7 +114,7 @@ export default function ContactPage() {
                     Réserver sur Planity
                   </Button>
                   <Button href="/demande-tatouage" variant="secondary">
-                    Décrire mon projet de tatouage
+                    Décrire mon projet
                   </Button>
                   <Button href={`mailto:${SITE.email}`} variant="secondary" external>
                     Écrire un e-mail
