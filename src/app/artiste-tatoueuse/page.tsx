@@ -178,8 +178,8 @@ export default function ArtisteTatoueusePage() {
               className="col-span-12 flex flex-col gap-4 sm:flex-row md:col-span-5 md:justify-end"
               delay={0.2}
             >
-              <Button href="/contact" variant="secondary" invert>
-                Me parler du tatouage
+              <Button href="/demande-tatouage" variant="secondary" invert>
+                Décrire mon projet
               </Button>
               <Button href={SITE.planity} variant="primary" external>
                 Prendre rendez-vous

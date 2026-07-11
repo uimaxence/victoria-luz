@@ -106,12 +106,15 @@ export default function ContactPage() {
                 <h2 className="mt-3 t-h2 text-chocolat">Prendre rendez-vous</h2>
                 <p className="mt-4 text-body text-text-muted">
                   La réservation se fait en ligne, en quelques minutes. Pour un projet de
-                  tatouage sur-mesure, décrivez-moi votre idée par message : nous le dessinerons
-                  ensemble avant la séance.
+                  tatouage sur-mesure, décrivez-moi votre idée grâce au formulaire dédié :
+                  nous le dessinerons ensemble avant la séance.
                 </p>
                 <div className="mt-8 flex flex-col gap-4">
                   <Button href={SITE.planity} variant="primary" external>
                     Réserver sur Planity
+                  </Button>
+                  <Button href="/demande-tatouage" variant="secondary">
+                    Décrire mon projet de tatouage
                   </Button>
                   <Button href={`mailto:${SITE.email}`} variant="secondary" external>
                     Écrire un e-mail
