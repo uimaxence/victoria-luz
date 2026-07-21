@@ -49,6 +49,7 @@ export default function ArtisteTatoueusePage() {
         ]}
         script="sur-mesure"
         lead="Chaque création est pensée sur mesure, en harmonie avec votre morphologie, votre personnalité et vos envies, pour devenir une œuvre unique que vous porterez toute votre vie."
+        cta={{ href: '/demande-tatouage', label: 'Décrire mon projet' }}
         image={{
           src: '/img/photos/img_8643.webp',
           alt: 'Tatouage ornemental rayonnant dans le dos, trait fin',

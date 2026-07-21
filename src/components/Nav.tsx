@@ -71,7 +71,7 @@ export default function Nav({ invert = false }: { invert?: boolean }) {
         {/* Logo */}
         <Link
           href="/"
-          className={`font-display text-h3 leading-none tracking-[0.02em] ${tone}`}
+          className={`whitespace-nowrap font-display text-h3 leading-none tracking-[0.02em] ${tone}`}
           onClick={() => setOpen(false)}
         >
           {SITE.logo}

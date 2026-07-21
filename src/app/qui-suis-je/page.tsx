@@ -28,7 +28,7 @@ export default function QuiSuisJePage() {
           { text: 'artistique &' },
           { text: 'reconstructrice', accent: true },
         ]}
-        script="Victoria"
+        script="Victoria-Luz"
         lead="J’ai la conviction que le tatouage peut être bien plus qu’une œuvre sur la peau : un véritable outil de réappropriation de soi."
         image={{
           src: '/img/photos/qui-suis-je.webp',

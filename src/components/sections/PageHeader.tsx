@@ -3,6 +3,7 @@ import HeroVideo from '@/components/HeroVideo';
 import VideoLinkOverlay from '@/components/VideoLinkOverlay';
 import Reveal from '@/components/Reveal';
 import Floral from '@/components/Floral';
+import Button from '@/components/Button';
 
 /**
  * En-tête de page éditorial, décliné du pattern `hero-bleed` (design.md §4.2 n°1).
@@ -22,6 +23,8 @@ type PageHeaderProps = {
   script?: string;
   /** Chapô court sous le titre. */
   lead?: string;
+  /** Optionnel : bouton d'appel à l'action placé sous le chapô (ex. questionnaire). */
+  cta?: { href: string; label: string; external?: boolean };
   image: { src: string; alt: string; objectPosition?: string };
   /** Optionnel : remplace l'image par une vidéo en lecture auto (muette, en boucle). */
   video?: { src: string; poster?: string; objectPosition?: string };
@@ -39,6 +42,7 @@ export default function PageHeader({
   tattoo = false,
   script,
   lead,
+  cta,
   image,
   video,
   videoLink,
@@ -93,6 +97,17 @@ export default function PageHeader({
             >
               {lead}
             </p>
+          )}
+
+          {cta && (
+            <div
+              className="reveal-load mt-8"
+              style={{ ['--delay' as string]: '0.5s' }}
+            >
+              <Button href={cta.href} variant="primary" external={cta.external}>
+                {cta.label}
+              </Button>
+            </div>
           )}
 
           {/* Image / vidéo mobile (en flux, sous le texte) */}
