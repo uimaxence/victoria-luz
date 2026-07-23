@@ -16,9 +16,9 @@ export const metadata: Metadata = {
   description:
     "Victoria-Luz, tatoueuse professionnelle à Angers. Tatouage artistique sur-mesure et reconstruction corporelle : aréole mammaire 3D, camouflage de cicatrices, sourcils & lèvres. Une approche douce, raffinée et valorisante.",
   icons: {
-    icon: [{ url: '/img/Logo_icone_bleu.png', type: 'image/png' }],
-    shortcut: '/img/Logo_icone_bleu.png',
-    apple: '/img/Logo_icone_bleu.png',
+    icon: [{ url: '/img/Logo_icone_favicon.png', type: 'image/png' }],
+    shortcut: '/img/Logo_icone_favicon.png',
+    apple: '/img/Logo_icone_favicon.png',
   },
   openGraph: {
     title: `${SITE.name}, Tatouage artistique & reconstruction corporelle`,
