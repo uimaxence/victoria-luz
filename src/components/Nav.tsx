@@ -67,11 +67,14 @@ export default function Nav({ invert = false }: { invert?: boolean }) {
       // elle reste collée au viewport, close button et fond opaque compris.
       className={`${open ? 'fixed' : 'sticky'} top-0 z-50 w-full transition-colors duration-[var(--dur-1)] ${bar}`}
     >
-      <nav className="container-page flex items-center justify-between py-4 md:py-5">
-        {/* Logo */}
+      {/* Barre pleine largeur : padding latéral plus resserré que
+          `container-page` pour laisser respirer logo et navigation et
+          exploiter davantage l'espace à gauche et à droite. */}
+      <nav className="mx-auto flex w-full max-w-content items-center justify-between px-5 py-4 md:px-8 md:py-5 xl:px-10 2xl:px-14">
+        {/* Logo (réduit : inutile qu'il domine la barre) */}
         <Link
           href="/"
-          className={`whitespace-nowrap font-display text-h3 leading-none tracking-[0.02em] ${tone}`}
+          className={`whitespace-nowrap font-display text-[clamp(1.125rem,1.5vw,1.5rem)] leading-none tracking-[0.02em] ${tone}`}
           onClick={() => setOpen(false)}
         >
           {SITE.logo}
