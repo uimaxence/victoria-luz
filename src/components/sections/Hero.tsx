@@ -27,40 +27,44 @@ export default function Hero() {
       {/* ---- Colonne texte (gauche, ≈55 %), centrée verticalement ---- */}
       <div className="container-page relative flex flex-col justify-center pb-14 pt-8 lg:min-h-[calc(100svh-4.5rem)] lg:py-0">
         <div className="lg:max-w-[52%] lg:pl-4">
+          {/* ---- Image mobile : en tête, au-dessus du texte (en flux) ---- */}
+          <div className="relative mb-8 lg:hidden">
+            <HeroImage
+              src="/img/photos/moi.webp"
+              alt="Portrait de Victoria-Luz, tatoueuse artistique et reconstructrice à Angers"
+              className="aspect-[3/4] w-full"
+            />
+            <span className="reveal-load t-hand pointer-events-none absolute bottom-5 left-5 -rotate-6 text-creme">
+              Victoria-Luz
+            </span>
+          </div>
+
           <p
             className="reveal-load t-surtitre"
             style={{ ['--delay' as string]: '0.05s' }}
           >
-            Victoria-Luz · Tatoueuse · {`Angers`}
+            Tatoueuse · {`Angers`}
           </p>
 
+          {/* Mobile : 2 lignes (« L’art du tatouage, » / « le soin du corps »).
+              Desktop (lg) : les mots imbriqués repassent en block → 4 lignes,
+              pour tenir dans la colonne à ≈52 %. Le floor du clamp est abaissé
+              pour que la 1re ligne tienne d’un bloc sur mobile sans troncature. */}
           <h1
             className="mt-4"
-            style={{ ['--fs-display' as string]: 'clamp(2.5rem, 5.5vw, 5.25rem)' }}
+            style={{ ['--fs-display' as string]: 'clamp(1.75rem, 8vw, 5.25rem)' }}
           >
             <span
               className="reveal-load t-display block text-chocolat"
               style={{ ['--delay' as string]: '0.12s' }}
             >
-              L’art du
-            </span>
-            <span
-              className="reveal-load t-display block text-chocolat"
-              style={{ ['--delay' as string]: '0.2s' }}
-            >
-              tatouage,
+              L’art du <span className="lg:block">tatouage,</span>
             </span>
             <span
               className="reveal-load t-display block text-accent"
-              style={{ ['--delay' as string]: '0.28s' }}
+              style={{ ['--delay' as string]: '0.24s' }}
             >
-              le soin
-            </span>
-            <span
-              className="reveal-load t-display block text-accent"
-              style={{ ['--delay' as string]: '0.34s' }}
-            >
-              du corps
+              le soin <span className="lg:block">du corps</span>
             </span>
           </h1>
 
@@ -83,27 +87,15 @@ export default function Hero() {
               variant="primary"
               className="w-full justify-center sm:w-auto sm:justify-start"
             >
-              Reconstruction corporelle
+              Découvrir la reconstruction
             </Button>
             <Button
               href="/artiste-tatoueuse"
               variant="secondary"
               className="w-full justify-center sm:w-auto sm:justify-start"
             >
-              Découvrir l’univers
+              Voir mes tatouages
             </Button>
-          </div>
-
-          {/* ---- Image mobile (en flux, sous le texte) ---- */}
-          <div className="relative mt-10 lg:hidden">
-            <HeroImage
-              src="/img/photos/moi.webp"
-              alt="Portrait de Victoria-Luz, tatoueuse artistique et reconstructrice à Angers"
-              className="aspect-[3/4] w-full"
-            />
-            <span className="reveal-load t-hand pointer-events-none absolute bottom-5 left-5 -rotate-6 text-creme">
-              Victoria-Luz
-            </span>
           </div>
         </div>
       </div>
