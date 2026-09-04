@@ -91,7 +91,11 @@ export default function ArtisteTatoueusePage() {
                 num={style.num}
                 title={style.title}
                 desc={style.desc}
-                image={{ src: style.image, alt: `Tatouage ${style.title.toLowerCase()}, exemple de réalisation` }}
+                image={{
+                  src: style.image,
+                  alt: style.alt ?? `Tatouage ${style.title.toLowerCase()}, exemple de réalisation`,
+                }}
+                secondary={style.secondary}
                 mirror={i % 2 === 1}
                 floral={florals[i]}
               />

@@ -15,10 +15,13 @@ export type Episode = {
   guest: string;
   excerpt: string;
   image: string;
+  /** Lien direct vers l'épisode ; à défaut, la carte renvoie vers la chaîne. */
+  url?: string;
 };
 
 /**
- * Carte d'extrait de podcast, cliquable vers YouTube.
+ * Carte d'extrait de podcast, cliquable vers YouTube (l'épisode si `ep.url`
+ * est renseigné, sinon la chaîne).
  * Desktop : pas de bouton par défaut ; au survol, une pastille « verre » suit le
  * curseur. Tactile : bouton classique en bas de carte.
  */
@@ -32,12 +35,13 @@ export default function PodcastCard({
   cardSize: string;
 }) {
   const { areaRef, pillRef, fine, hover, bind } = useCursorFollow<HTMLAnchorElement>();
+  const href = ep.url ?? youtube;
 
   return (
     <article className={`group relative shrink-0 snap-start ${cardSize}`}>
       <a
         ref={areaRef}
-        href={youtube}
+        href={href}
         target="_blank"
         rel="noreferrer noopener"
         aria-label={`Écouter « ${ep.title} » (${ep.guest}) sur YouTube`}

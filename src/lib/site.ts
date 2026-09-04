@@ -12,7 +12,7 @@ export const SITE = {
   email: 'contact@victoria-luz.fr',
   phone: '06 67 51 55 12',
   phoneHref: '+33667515512',
-  address: '6 avenue Pasteur, 49100 Angers',
+  address: '11 quai Gambetta, 49100 Angers',
   city: 'Angers',
   instagram: '@enluzd',
   instagramUrl: 'https://instagram.com/enluzd',
@@ -78,12 +78,33 @@ export const POLES = [
 /* =========================================================================
    Tatouage artistique (§ brief)
    ========================================================================= */
-export const TATTOO_STYLES = [
+export type TattooStyle = {
+  num: string;
+  title: string;
+  desc: string;
+  image: string;
+  /** Alt dédié au visuel principal (sinon généré depuis le titre). */
+  alt?: string;
+  /** Seconde pièce, en léger chevauchement du visuel principal (duo,
+   *  cf. FeatureRow `secondary`). Permet de montrer deux réalisations
+   *  sans alourdir la rangée. */
+  secondary?: { src: string; alt: string; objectPosition?: string };
+};
+
+export const TATTOO_STYLES: readonly TattooStyle[] = [
   {
     num: '01',
     title: 'Ornemental',
     desc: "Inspiré de la joaillerie et des motifs décoratifs, le tatouage ornemental habille le corps comme un véritable bijou. J'aime y intégrer, lorsque le projet s'y prête, des inspirations issues des cultures hindoues ou thaïlandaises, à travers des symboles qui apportent une dimension spirituelle et intemporelle. Chaque composition épouse harmonieusement les courbes du corps.",
-    image: '/img/photos/ornemental_dos.webp',
+    // Pièce phare (très relayée sur Instagram) : les deux poignets assortis, en grand.
+    image: '/img/photos/ornemental_poignets.webp',
+    alt: 'Tatouages ornementaux assortis sur les deux poignets, trait fin et symétrie de bijou',
+    // Le dos soleil & lune reste visible, en second plan, en chevauchement.
+    secondary: {
+      src: '/img/photos/ornemental_dos.webp',
+      alt: 'Tatouage ornemental soleil et lune le long de la colonne, trait fin',
+      objectPosition: 'center 85%',
+    },
   },
   {
     num: '02',
@@ -97,7 +118,7 @@ export const TATTOO_STYLES = [
     desc: 'Un mot, une phrase ou quelques lettres peuvent raconter toute une histoire. Le tatouage typographique immortalise un souvenir, une valeur ou un message. Chaque écriture est choisie ou créée selon votre projet : il est même possible de reproduire l’écriture d’un proche, pour conserver une trace unique et profondément symbolique.',
     image: '/img/photos/typo_1.webp',
   },
-] as const;
+];
 
 /* =========================================================================
    Reconstruction corporelle (§ brief)
@@ -151,6 +172,8 @@ export const MAQUILLAGE_OUTRO = [
 /* =========================================================================
    Podcast « Sous nos cicatrices » (§ brief)
    Épisodes placeholder · défilement horizontal (design.md §4.2 gallery-scroll).
+   `url` (optionnel) : lien direct vers l'épisode ; sinon la carte renvoie vers
+   la chaîne (SITE.youtube).
    ========================================================================= */
 export const PODCAST_EPISODES = [
   {
@@ -159,6 +182,7 @@ export const PODCAST_EPISODES = [
     guest: 'Le parcours de Cécile',
     excerpt: 'Mettre des mots sur les violences obstétricales, et se reconstruire après une maternité éprouvante.',
     image: '/img/photos/podcast-cecile.webp',
+    url: 'https://www.youtube.com/watch?v=ZqU4Bo2y1AI',
   },
   {
     num: '02',
@@ -194,6 +218,14 @@ export const PODCAST_EPISODES = [
     guest: 'Le parcours de Fanny',
     excerpt: 'Traverser le cancer, et faire du tatouage un ancrage pour avancer.',
     image: '/img/photos/podcast-fanny.webp',
+  },
+  {
+    num: '07',
+    title: 'Parler de la dépression sans tabou',
+    guest: 'Le parcours de Ketty',
+    excerpt: 'Une jeune maman face à la dépression : nommer les symptômes que l’on banalise, et oser demander de l’aide.',
+    image: '/img/photos/podcast-ketty.webp',
+    url: 'https://www.youtube.com/watch?v=fOApNZWng8g',
   },
 ] as const;
 

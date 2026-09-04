@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import PodcastCard from './PodcastCard';
+import PodcastCard, { type Episode } from './PodcastCard';
 
 /**
  * Défilement horizontal piloté par le scroll vertical (design.md §4.2 gallery-scroll).
@@ -20,14 +20,6 @@ import PodcastCard from './PodcastCard';
  *   (overflow-x + scroll-snap). Le rendu SSR part du mode natif → pas de saut
  *   d'hydratation.
  */
-
-type Episode = {
-  num: string;
-  title: string;
-  guest: string;
-  excerpt: string;
-  image: string;
-};
 
 const clamp = (v: number, min: number, max: number) => Math.min(Math.max(v, min), max);
 

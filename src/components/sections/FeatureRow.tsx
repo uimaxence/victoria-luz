@@ -6,12 +6,19 @@ import Floral from '@/components/Floral';
  * Bloc prestation/style en split-5-7 (design.md §4.2 n°2), orientation alternée
  * (`mirror`) une rangée sur deux. Numéro index optionnel, fleur au trait dosée.
  * Réutilisé pour les styles de tatouage et les détails de prestations.
+ *
+ * Variante « duo » : une seconde image (`secondary`) vient chevaucher le bas du
+ * visuel principal, côté texte, façon broken-overlap (design.md §4.2 n°3), avec
+ * le même cadre fin que le duo des interludes. Le visuel principal garde toute
+ * sa place ; la seconde pièce se lit comme un tirage posé par-dessus.
  */
 type FeatureRowProps = {
   num?: string;
   title: string;
   desc: string;
   image: { src: string; alt: string; objectPosition?: string };
+  /** seconde image, en léger chevauchement du visuel principal */
+  secondary?: { src: string; alt: string; objectPosition?: string };
   /** image à droite / texte à gauche */
   mirror?: boolean;
   floral?: { name: string; width?: number; rotate?: number };
@@ -22,6 +29,7 @@ export default function FeatureRow({
   title,
   desc,
   image,
+  secondary,
   mirror = false,
   floral,
 }: FeatureRowProps) {
@@ -31,7 +39,7 @@ export default function FeatureRow({
       <Reveal
         className={`relative col-span-12 md:col-span-6 lg:col-span-5 ${
           mirror ? 'md:order-2 md:col-start-8 lg:col-start-8' : 'md:col-start-1'
-        }`}
+        } ${secondary ? 'mb-8 md:mb-0' : ''}`}
       >
         <ImageFrame
           src={image.src}
@@ -40,6 +48,30 @@ export default function FeatureRow({
           sizes="(max-width: 768px) 100vw, 40vw"
           objectPosition={image.objectPosition ?? 'center'}
         />
+
+        {/* Seconde image en chevauchement (duo). Posée en bas, côté texte :
+            elle déborde dans la colonne de respiration (jamais sur le texte,
+            centré verticalement plus haut). En mobile, débord réduit et marge
+            basse compensée (mb-8 ci-dessus) pour ne pas toucher le numéro. */}
+        {secondary && (
+          <div
+            className={`absolute -bottom-8 z-[2] w-[44%] md:-bottom-10 ${
+              mirror ? '-left-2 md:-left-4 lg:-left-10' : '-right-2 md:-right-4 lg:-right-10'
+            }`}
+          >
+            <Reveal delay={0.22}>
+              <ImageFrame
+                src={secondary.src}
+                alt={secondary.alt}
+                ratio="square"
+                framed
+                sizes="(max-width: 768px) 44vw, 18vw"
+                objectPosition={secondary.objectPosition ?? 'center'}
+              />
+            </Reveal>
+          </div>
+        )}
+
         {floral && (
           <Floral
             name={floral.name}
