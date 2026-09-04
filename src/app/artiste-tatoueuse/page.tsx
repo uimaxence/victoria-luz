@@ -51,9 +51,9 @@ export default function ArtisteTatoueusePage() {
         lead="Chaque création est pensée sur mesure, en harmonie avec votre morphologie, votre personnalité et vos envies, pour devenir une œuvre unique que vous porterez toute votre vie."
         cta={{ href: '/demande-tatouage', label: 'Décrire mon projet' }}
         image={{
-          src: '/img/photos/img_8643.webp',
-          alt: 'Tatouage ornemental rayonnant dans le dos, trait fin',
-          objectPosition: 'center 35%',
+          src: '/img/photos/ornemental_poignets.webp',
+          alt: 'Tatouages ornementaux assortis sur les deux poignets, trait fin et symétrie de bijou',
+          objectPosition: 'center 40%',
         }}
         floral={{ name: 'Pivoine_1_rose', width: 150 }}
       />

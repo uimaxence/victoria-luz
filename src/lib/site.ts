@@ -96,14 +96,14 @@ export const TATTOO_STYLES: readonly TattooStyle[] = [
     num: '01',
     title: 'Ornemental',
     desc: "Inspiré de la joaillerie et des motifs décoratifs, le tatouage ornemental habille le corps comme un véritable bijou. J'aime y intégrer, lorsque le projet s'y prête, des inspirations issues des cultures hindoues ou thaïlandaises, à travers des symboles qui apportent une dimension spirituelle et intemporelle. Chaque composition épouse harmonieusement les courbes du corps.",
-    // Pièce phare (très relayée sur Instagram) : les deux poignets assortis, en grand.
-    image: '/img/photos/ornemental_poignets.webp',
-    alt: 'Tatouages ornementaux assortis sur les deux poignets, trait fin et symétrie de bijou',
-    // Le dos soleil & lune reste visible, en second plan, en chevauchement.
+    // La pièce phare (les poignets assortis, très relayée sur Instagram) ouvre la
+    // page en héros ; ici le dos soleil & lune en grand, et un gros plan des deux
+    // poignets en tirage chevauchant : vue large en haut, détail juste en dessous.
+    image: '/img/photos/ornemental_dos.webp',
+    alt: 'Tatouage ornemental soleil et lune le long de la colonne, trait fin',
     secondary: {
-      src: '/img/photos/ornemental_dos.webp',
-      alt: 'Tatouage ornemental soleil et lune le long de la colonne, trait fin',
-      objectPosition: 'center 85%',
+      src: '/img/photos/ornemental_poignets_detail.webp',
+      alt: 'Gros plan des tatouages ornementaux assortis sur les deux poignets',
     },
   },
   {
